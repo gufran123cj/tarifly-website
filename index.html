@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Tarifly — Recipe Saver, Meal Planner &amp; Grocery List for iPhone</title>
-    <meta name="description" content="Save the recipes you love from TikTok links, screenshots, saved videos and text. Check every ingredient, then cook step by step. No account, no ads, no tracking.">
+    <meta name="description" content="Save the recipes you love from TikTok and Instagram links, screenshots, saved videos and text. Check every ingredient, then cook step by step. No account, no ads, no tracking.">
     <link rel="canonical" href="https://gufran123cj.github.io/tarifly-website/">
-    <meta name="theme-color" content="#d6453d">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#d2361f" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#8e2414" media="(prefers-color-scheme: dark)">
     <meta name="apple-mobile-web-app-title" content="Tarifly">
 
     <!-- hreflang: /tr/ sayfası henüz yok (bekleyen iş K5). Eklendiğinde
@@ -32,7 +34,7 @@
       "name": "Tarifly",
       "operatingSystem": "iOS 26.0 or later",
       "applicationCategory": "FoodAndDrinkApplication",
-      "description": "Save recipes from TikTok links, screenshots, saved videos and text into an organized cookbook on your iPhone. Meal planner and grocery list. No account, no ads, no tracking.",
+      "description": "Save recipes from TikTok and Instagram links, screenshots, saved videos and text into an organized cookbook on your iPhone. Meal planner and grocery list. No account, no ads, no tracking.",
       "inLanguage": ["en", "tr"],
       "offers": [
         {
@@ -57,189 +59,1319 @@
       ]
     }
     </script>
+
+    <!-- Fontlar uygulamayla aynı (Tarifly/Resources/Fonts), Latin alt kümesi
+         olarak bu sitede barınıyor: ziyaretçinin tarayıcısı üçüncü taraf bir
+         font servisine istek atmıyor. Lisans: fonts/OFL.txt -->
+    <link rel="preload" href="fonts/fraunces-italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
     <style>
+        @font-face {
+            font-family: "Fraunces";
+            src: url("fonts/fraunces-italic.woff2") format("woff2");
+            font-style: italic;
+            font-weight: 400 900;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Plus Jakarta Sans";
+            src: url("fonts/plus-jakarta-sans.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 200 800;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "Barlow Condensed";
+            src: url("fonts/barlow-condensed-bold.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+        }
+
+        /* Renkler uygulamanın Theme.swift token'ları: linen, card, charcoal,
+           muted, action/link (domates), olive, amber. Koyu değerler de oradan. */
+        :root {
+            color-scheme: light;
+            --canvas: #f4efe8;
+            --surface: #fdfaf6;
+            --ink: #1a1714;
+            --muted: #6b6152;
+            --line: rgba(26, 23, 20, 0.12);
+            --action: #d2361f;
+            --on-action: #ffffff;
+            --link: #c9311e;
+            --olive: #4a5e2e;
+            --olive-tint: rgba(74, 94, 46, 0.10);
+            --tint: #f6ddd5;
+            --hero: #d2361f;
+            --hero-ink: #fdfaf6;
+            --hero-accent: #ffe2b8;
+            --hero-btn: #1a1714;
+            --hero-btn-ink: #fdfaf6;
+            --plus: #4a5e2e;
+            --plus-ink: #fdfaf6;
+            --plus-muted: rgba(253, 250, 246, 0.80);
+            --plus-accent: #e9b45e;
+            --plus-card: rgba(253, 250, 246, 0.09);
+            --plus-line: rgba(253, 250, 246, 0.22);
+            --bezel: #1a1714;
+            --shadow: 0 34px 60px -24px rgba(26, 23, 20, 0.45);
+            --blob-a: #f2c66d;
+            --blob-b: #bccf93;
+            --blob-c: #f4b5a5;
+            --sq-a: #d2361f;
+            --sq-b: #4a5e2e;
+            --sq-c: #f2c66d;
+            --ill-lemon: #f2c66d;
+            --ill-lemon-in: #fbe6a6;
+            --ill-leaf: #9cb56f;
+            --ill-vein: #4a5e2e;
+            --ill-garlic: #fdfaf6;
+            --ill-garlic-line: #e7d8c6;
+            --ill-olive: #2f3b1e;
+            --ill-pimiento: #f4b5a5;
+            --ill-pasta: #f7d78a;
+            --ill-pepper: rgba(26, 23, 20, 0.30);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                color-scheme: dark;
+                --canvas: #14110f;
+                --surface: #1f1b18;
+                --ink: #f2ede6;
+                --muted: #a79c8c;
+                --line: rgba(255, 255, 255, 0.14);
+                --action: #f2624b;
+                --on-action: #14110f;
+                --link: #f2624b;
+                --olive: #9cb56f;
+                --olive-tint: rgba(156, 181, 111, 0.14);
+                --tint: rgba(242, 98, 75, 0.18);
+                --hero: #8e2414;
+                --hero-ink: #fbf3ea;
+                --hero-accent: #ffc98a;
+                --hero-btn: #fbf3ea;
+                --hero-btn-ink: #14110f;
+                --plus: #26301a;
+                --plus-ink: #f2ede6;
+                --plus-muted: rgba(242, 237, 230, 0.78);
+                --plus-accent: #e2a34a;
+                --plus-card: rgba(242, 237, 230, 0.06);
+                --plus-line: rgba(242, 237, 230, 0.16);
+                --bezel: #000000;
+                --shadow: 0 34px 60px -24px rgba(0, 0, 0, 0.8);
+                --blob-a: #4d3a1c;
+                --blob-b: #2f3a24;
+                --blob-c: #4f241b;
+                --sq-a: #f2624b;
+                --sq-b: #9cb56f;
+                --sq-c: #e2a34a;
+                --ill-lemon: #c99a3e;
+                --ill-lemon-in: #e2c077;
+                --ill-leaf: #6f8a47;
+                --ill-vein: #2a3519;
+                --ill-garlic: #e9dfd2;
+                --ill-garlic-line: #cdbfae;
+                --ill-olive: #1a2111;
+                --ill-pimiento: #e58c78;
+                --ill-pasta: #d9b866;
+                --ill-pepper: rgba(0, 0, 0, 0.40);
+            }
+        }
+        :root[data-theme="dark"] {
+            color-scheme: dark;
+            --canvas: #14110f;
+            --surface: #1f1b18;
+            --ink: #f2ede6;
+            --muted: #a79c8c;
+            --line: rgba(255, 255, 255, 0.14);
+            --action: #f2624b;
+            --on-action: #14110f;
+            --link: #f2624b;
+            --olive: #9cb56f;
+            --olive-tint: rgba(156, 181, 111, 0.14);
+            --tint: rgba(242, 98, 75, 0.18);
+            --hero: #8e2414;
+            --hero-ink: #fbf3ea;
+            --hero-accent: #ffc98a;
+            --hero-btn: #fbf3ea;
+            --hero-btn-ink: #14110f;
+            --plus: #26301a;
+            --plus-ink: #f2ede6;
+            --plus-muted: rgba(242, 237, 230, 0.78);
+            --plus-accent: #e2a34a;
+            --plus-card: rgba(242, 237, 230, 0.06);
+            --plus-line: rgba(242, 237, 230, 0.16);
+            --bezel: #000000;
+            --shadow: 0 34px 60px -24px rgba(0, 0, 0, 0.8);
+            --blob-a: #4d3a1c;
+            --blob-b: #2f3a24;
+            --blob-c: #4f241b;
+            --sq-a: #f2624b;
+            --sq-b: #9cb56f;
+            --sq-c: #e2a34a;
+            --ill-lemon: #c99a3e;
+            --ill-lemon-in: #e2c077;
+            --ill-leaf: #6f8a47;
+            --ill-vein: #2a3519;
+            --ill-garlic: #e9dfd2;
+            --ill-garlic-line: #cdbfae;
+            --ill-olive: #1a2111;
+            --ill-pimiento: #e58c78;
+            --ill-pasta: #d9b866;
+            --ill-pepper: rgba(0, 0, 0, 0.40);
+        }
+
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        @media (prefers-reduced-motion: no-preference) {
+            html { scroll-behavior: smooth; }
+        }
+        body {
+            margin: 0;
+            background: var(--canvas);
+            color: var(--ink);
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        img, svg { max-width: 100%; }
+        a { color: var(--link); font-weight: 600; text-decoration: none; }
+        a:hover { text-decoration: underline; text-underline-offset: 3px; }
+        a:focus-visible, summary:focus-visible {
+            outline: 3px solid currentColor;
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+        :target { scroll-margin-top: 24px; }
+        .visually-hidden {
+            position: absolute;
+            width: 1px; height: 1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin-inline: auto;
+            padding-left: max(20px, env(safe-area-inset-left, 0px));
+            padding-right: max(20px, env(safe-area-inset-right, 0px));
+        }
+        .display {
+            font-family: "Fraunces", "Iowan Old Style", Georgia, serif;
+            font-style: italic;
+            font-weight: 500;
+            font-optical-sizing: auto;
+            letter-spacing: -0.02em;
+            line-height: 1.02;
+            text-wrap: balance;
+            margin: 0;
+        }
+        .display em {
+            font-style: italic;
+            font-weight: 900;
+            color: var(--action);
+        }
+        .label {
+            font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--olive);
+            margin: 0;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 26px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.02rem;
+            text-decoration: none;
+        }
+        .btn:hover { text-decoration: none; filter: brightness(1.06); }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            background: var(--hero);
+            color: var(--hero-ink);
+            overflow: hidden;
+            padding-top: env(safe-area-inset-top, 0px);
+        }
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px 28px;
+            padding-block: 22px;
+        }
+        .wordmark {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 1.85rem;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            color: var(--hero-ink);
+        }
+        .wordmark:hover { text-decoration: none; }
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 22px;
+        }
+        .nav a:not(.wordmark) { color: var(--hero-ink); font-size: 0.95rem; }
+        .hero-body {
+            text-align: center;
+            padding-block: clamp(40px, 8vw, 96px) clamp(28px, 4vw, 48px);
+            display: grid;
+            justify-items: center;
+            gap: 20px;
+        }
+        .hero .label { color: var(--hero-ink); }
+        .hero h1 {
+            font-size: clamp(3rem, 9vw, 6.6rem);
+            max-width: 12ch;
+        }
+        .hero h1 em { color: var(--hero-accent); }
+        .lede {
+            font-size: clamp(1.08rem, 1.8vw, 1.3rem);
+            line-height: 1.5;
+            max-width: 36rem;
+            margin: 0;
+        }
+        .lede strong { display: block; margin-top: 6px; font-weight: 700; }
+        .btn-hero { background: var(--hero-btn); color: var(--hero-btn-ink); margin-top: 8px; }
+        .foods {
+            display: block;
+            width: 100%;
+            height: clamp(150px, 21vw, 300px);
+        }
+
+        /* ---------- Sources ---------- */
+        .section { padding-block: clamp(72px, 10vw, 128px); }
+        .section-head {
+            display: grid;
+            gap: 18px;
+            max-width: 46rem;
+            margin-bottom: clamp(36px, 5vw, 56px);
+        }
+        .section-head h2, .feature h2 { font-size: clamp(2.4rem, 5.6vw, 4.2rem); }
+        .section-head p { margin: 0; color: var(--muted); font-size: 1.12rem; }
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+            gap: 16px;
+        }
+        .source {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 24px 22px 26px;
+            display: grid;
+            align-content: start;
+            gap: 10px;
+        }
+        .source svg { width: 34px; height: 34px; color: var(--action); }
+        .source h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 1.35rem;
+            line-height: 1.15;
+            margin: 6px 0 0;
+        }
+        .source p { margin: 0; font-size: 0.98rem; color: var(--muted); }
+        .source.note { background: transparent; border-style: dashed; }
+
+        /* ---------- Feature rows ---------- */
+        .feature { overflow: hidden; }
+        .feature .wrap {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: center;
+            gap: clamp(40px, 7vw, 96px);
+        }
+        .feature.flip .copy { order: 2; }
+        .copy { display: grid; gap: 20px; max-width: 32rem; }
+        .copy p { margin: 0; font-size: 1.12rem; }
+        .copy .aside { font-size: 0.98rem; color: var(--muted); }
+        .plus .wrap + .wrap { display: block; }
+        @media (max-width: 820px) {
+            .feature .wrap { grid-template-columns: minmax(0, 1fr); }
+            .feature.flip .copy { order: 0; }
+        }
+
+        .stage {
+            position: relative;
+            display: grid;
+            place-items: center;
+            padding-block: 32px;
+        }
+        .blob {
+            position: absolute;
+            width: min(500px, 125%);
+            height: auto;
+            z-index: 0;
+        }
+        .blob .b { fill: var(--blob-a); }
+        .blob .s { stroke: var(--sq-a); }
+        .stage.olive .blob .b { fill: var(--blob-b); }
+        .stage.olive .blob .s { stroke: var(--sq-b); }
+        .stage.rose .blob .b { fill: var(--blob-c); }
+        .stage.rose .blob .s { stroke: var(--sq-c); }
+
+        /* ---------- Phone mockups (uygulama ekranlarının birebir metinleri) ---------- */
+        .phone {
+            position: relative;
+            z-index: 1;
+            width: min(300px, 80vw);
+            aspect-ratio: 300 / 620;
+            border-radius: 48px;
+            background: var(--bezel);
+            padding: 10px;
+            box-shadow: var(--shadow);
+            transform: rotate(-2.5deg);
+        }
+        .stage.olive .phone, .flip .phone { transform: rotate(2.5deg); }
+        .phone::before {
+            content: "";
+            position: absolute;
+            top: 21px;
+            left: 50%;
+            translate: -50% 0;
+            width: 88px;
+            height: 26px;
+            border-radius: 20px;
+            background: #000;
+            z-index: 2;
+        }
+        .screen {
+            position: relative;
+            height: 100%;
+            border-radius: 38px;
+            overflow: hidden;
+            background: var(--canvas);
+            color: var(--ink);
+            padding: 50px 16px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 12.5px;
+            line-height: 1.35;
+            text-align: left;
+        }
+        .time {
+            position: absolute;
+            top: 22px;
+            left: 30px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+        .batt {
+            position: absolute;
+            top: 25px;
+            right: 28px;
+            width: 22px;
+            height: 11px;
+            border: 1.5px solid var(--ink);
+            border-radius: 3px;
+            opacity: 0.8;
+        }
+        .batt::after {
+            content: "";
+            position: absolute;
+            inset: 1.5px 5px 1.5px 1.5px;
+            background: var(--ink);
+            border-radius: 1px;
+        }
+        .s-title {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 21px;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+        }
+        .s-center { text-align: center; }
+        .s-label {
+            font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 11px;
+            color: var(--olive);
+        }
+        .s-muted { color: var(--muted); }
+        .s-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pill {
+            border: 1px solid var(--line);
+            background: var(--surface);
+            border-radius: 999px;
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+        .pill.red { color: var(--link); }
+        .banner {
+            background: var(--olive-tint);
+            color: var(--olive);
+            border-radius: 10px;
+            padding: 8px 10px;
+            font-size: 11.5px;
+        }
+        .ing { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+        .ing li { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+        .ing li::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--action);
+            flex: none;
+            translate: 0 -2px;
+        }
+        .ing .s-muted { font-size: 11px; }
+        .steps { margin: 0; padding: 0; list-style: none; counter-reset: st; display: grid; gap: 6px; }
+        .steps li { counter-increment: st; display: grid; grid-template-columns: 18px 1fr; }
+        .steps li::before {
+            content: counter(st) ".";
+            font-family: "Barlow Condensed", sans-serif;
+            font-weight: 700;
+            color: var(--action);
+        }
+        .s-btn {
+            margin-top: auto;
+            background: var(--action);
+            color: var(--on-action);
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 11px;
+        }
+        .search {
+            background: var(--line);
+            border-radius: 10px;
+            padding: 8px 10px;
+            color: var(--muted);
+        }
+        .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+        .chip {
+            font-family: "Barlow Condensed", sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            font-size: 11px;
+            border-radius: 999px;
+            padding: 4px 10px;
+            background: var(--line);
+            color: var(--muted);
+        }
+        .chip.on { background: var(--action); color: var(--on-action); }
+        .chip.soft { background: var(--tint); color: var(--link); border-radius: 6px; padding: 2px 6px; }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 10px;
+        }
+        .ready { display: grid; grid-template-columns: 52px 1fr; gap: 10px; align-items: center; }
+        .shot {
+            background: var(--canvas);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 6px 5px;
+            display: grid;
+            gap: 3px;
+            align-content: start;
+        }
+        .shot i { display: block; height: 3px; border-radius: 2px; background: var(--muted); opacity: 0.35; }
+        .shot i:nth-child(3n) { width: 70%; }
+        .shot i:nth-child(4n) { width: 55%; }
+        .mini-btn {
+            display: inline-block;
+            margin-top: 5px;
+            background: var(--action);
+            color: var(--on-action);
+            border-radius: 8px;
+            padding: 4px 9px;
+            font-weight: 700;
+            font-size: 11px;
+        }
+        .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .grid2 .shot { height: 74px; }
+        .grid2 .card { display: grid; gap: 6px; padding: 8px; }
+        .rec-t { font-weight: 600; font-size: 12px; line-height: 1.2; }
+        .rec-m { display: flex; gap: 6px; align-items: center; font-size: 10.5px; color: var(--muted); }
+        .addname { color: var(--link); font-family: "Barlow Condensed", sans-serif; font-weight: 700; letter-spacing: 0.04em; font-size: 11.5px; }
+        .tabs {
+            margin-top: auto;
+            align-self: center;
+            display: flex;
+            gap: 4px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 4px;
+        }
+        .tabs span {
+            display: grid;
+            justify-items: center;
+            gap: 1px;
+            font-size: 9.5px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 999px;
+        }
+        .tabs svg { width: 16px; height: 16px; }
+        .tabs .on { background: var(--line); color: var(--link); }
+        .cook-top { display: grid; grid-template-columns: 30px 1fr auto; gap: 8px; align-items: center; }
+        .xbtn {
+            width: 30px; height: 30px; border-radius: 50%;
+            background: var(--surface);
+            display: grid; place-items: center;
+            font-size: 15px;
+        }
+        .cook-top .pill { background: var(--tint); color: var(--link); border: 0; font-size: 11px; }
+        .bignum {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 56px;
+            line-height: 1;
+            color: var(--action);
+            margin-top: 16px;
+        }
+        .bigstep { font-size: 20px; line-height: 1.35; font-weight: 500; }
+        .timers { margin-top: auto; display: flex; justify-content: center; gap: 6px; }
+        .timers span { background: var(--tint); color: var(--link); border-radius: 999px; padding: 6px 11px; font-size: 12px; }
+        .progress { height: 4px; border-radius: 4px; background: var(--line); }
+        .progress i { display: block; width: 25%; height: 100%; border-radius: 4px; background: var(--action); }
+        .cook .s-btn { margin-top: 0; }
+        .rows { display: grid; }
+        .row {
+            display: grid;
+            grid-template-columns: 18px 1fr;
+            gap: 10px;
+            align-items: center;
+            padding: 8px 2px;
+            border-bottom: 1px solid var(--line);
+        }
+        .row .box {
+            width: 18px; height: 18px; border-radius: 50%;
+            border: 1.5px solid var(--muted);
+        }
+        .row.done .box { background: var(--olive); border-color: var(--olive); }
+        .row.done .nm { text-decoration: line-through; color: var(--muted); }
+        .nm { font-weight: 600; font-size: 12.5px; }
+        .sub { font-size: 10.5px; color: var(--muted); }
+        .addrow {
+            border: 1px dashed var(--line);
+            border-radius: 10px;
+            padding: 8px 10px;
+            color: var(--muted);
+        }
+        .week { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 12px; }
+        .day { display: grid; gap: 5px; }
+        .day .s-label { color: var(--muted); }
+        .slot {
+            display: grid;
+            grid-template-columns: 62px 1fr;
+            gap: 8px;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 7px 9px;
+        }
+        .slot b { font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.05em; text-transform: uppercase; font-size: 10.5px; color: var(--olive); }
+        .slot.empty { border-style: dashed; background: transparent; color: var(--muted); }
+
+        /* ---------- Plus band ---------- */
+        .plus {
+            background: var(--plus);
+            color: var(--plus-ink);
+            overflow: hidden;
+        }
+        .plus .label { color: var(--plus-accent); }
+        .plus .display em { color: var(--plus-accent); }
+        .plus .copy p { color: var(--plus-muted); }
+        .plus a { color: var(--plus-ink); text-decoration: underline; text-underline-offset: 3px; }
+        .tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 16px;
+            margin-top: clamp(48px, 7vw, 80px);
+        }
+        .tier {
+            border: 1px solid var(--plus-line);
+            background: var(--plus-card);
+            border-radius: 22px;
+            padding: 26px 26px 22px;
+        }
+        .tier h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: 1.6rem;
+            margin: 0 0 12px;
+        }
+        .tier ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 8px; color: var(--plus-muted); }
+        .tier strong { color: var(--plus-ink); }
+        .tier-note { margin: 18px 0 0; font-size: 0.92rem; color: var(--plus-muted); }
+
+        /* ---------- Promise ---------- */
+        .promise .display { font-size: clamp(2.6rem, 7vw, 5.4rem); max-width: 18ch; }
+        .promise .display em { white-space: nowrap; }
+        .promise-lede { max-width: 40rem; font-size: 1.15rem; margin: 22px 0 0; }
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: 0;
+            margin-top: clamp(40px, 6vw, 64px);
+            border-top: 1px solid var(--line);
+        }
+        .fact { padding: 24px 24px 8px 0; display: grid; gap: 8px; align-content: start; }
+        .fact p { margin: 0; color: var(--muted); }
+
+        /* ---------- Compare ---------- */
+        .cmp {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 1rem;
+        }
+        .cmp th, .cmp td {
+            text-align: left;
+            vertical-align: top;
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--line);
+        }
+        .cmp thead th {
+            font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            color: var(--muted);
+            border-bottom: 0;
+            padding-block: 0 14px;
+        }
+        .cmp thead th.us {
+            color: var(--hero-ink);
+            background: var(--hero);
+            border-radius: 18px 18px 0 0;
+            padding-top: 16px;
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            text-transform: none;
+            font-size: 1.5rem;
+        }
+        .cmp tbody th {
+            font-weight: 700;
+            width: 26%;
+        }
+        .cmp td.us {
+            background: var(--surface);
+            border-left: 2px solid var(--hero);
+            border-right: 2px solid var(--hero);
+            font-weight: 600;
+        }
+        .cmp tbody tr:last-child td.us { border-bottom: 2px solid var(--hero); border-radius: 0 0 18px 18px; }
+        .cmp td.them { color: var(--muted); }
+        .cmp .tick {
+            display: inline-grid;
+            place-items: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--action);
+            color: var(--on-action);
+            font-size: 13px;
+            font-weight: 800;
+            margin-right: 8px;
+            translate: 0 -1px;
+        }
+        .notyet-title {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin: clamp(48px, 7vw, 72px) 0 18px;
+        }
+        .notyet {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+            gap: 16px;
+        }
+        .notyet-item {
+            border: 1px dashed var(--line);
+            border-radius: 18px;
+            padding: 20px 22px;
+            display: grid;
+            gap: 8px;
+            align-content: start;
+        }
+        .notyet-item .label { color: var(--muted); }
+        .notyet-item p:last-child { margin: 0; }
+        .cmp-note { margin: 22px 0 0; font-size: 0.9rem; color: var(--muted); max-width: 46rem; }
+        @media (max-width: 640px) {
+            .cmp thead tr, .cmp tbody tr {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            .cmp thead th:first-child { display: none; }
+            .cmp tbody th { grid-column: 1 / -1; width: auto; padding: 18px 0 6px; border-bottom: 0; }
+            .cmp th, .cmp td { padding: 10px 12px 14px; font-size: 0.94rem; }
+            .cmp thead th.us { font-size: 1.25rem; padding-top: 12px; }
+            .cmp td.us { border-left-width: 2px; }
+        }
+
+        /* ---------- FAQ ---------- */
+        .faq-list { border-top: 1px solid var(--line); }
+        .faq-list details { border-bottom: 1px solid var(--line); }
+        .faq-list summary {
+            list-style: none;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 1fr 28px;
+            gap: 20px;
+            align-items: center;
+            padding: 26px 0;
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: clamp(1.35rem, 2.8vw, 2.1rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+        .faq-list summary::-webkit-details-marker { display: none; }
+        .faq-list summary::after {
+            content: "+";
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.8rem;
+            line-height: 1;
+            color: var(--action);
+            text-align: center;
+            transition: rotate 0.2s ease;
+        }
+        .faq-list details[open] summary::after { rotate: 45deg; }
+        .faq-list .answer { padding: 0 0 28px; max-width: 46rem; }
+        .faq-list .answer p { margin: 0 0 10px; }
+
+        /* ---------- Documents (support, privacy, terms) ---------- */
+        .docs { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+        .doc {
+            width: 100%;
+            min-width: 0;
+            max-width: 820px;
+            margin-inline: auto;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: clamp(26px, 5vw, 56px);
+        }
+        .doc h2 { font-size: clamp(2rem, 4.4vw, 2.9rem); margin-bottom: 18px; }
+        .doc h3 { font-size: 1.05rem; font-weight: 700; margin: 30px 0 8px; }
+        .doc p, .doc li { font-size: 1rem; }
+        .doc ul { padding-left: 1.2rem; margin: 8px 0; }
+        .doc li { margin-bottom: 8px; }
+        .meta { color: var(--muted); font-size: 0.9rem; }
+        .support {
+            background: var(--tint);
+            border-color: transparent;
+        }
+        .support .email {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 800;
+            font-size: clamp(1.25rem, 3.6vw, 1.9rem);
+            overflow-wrap: anywhere;
+        }
+        .table-wrap { overflow-x: auto; margin: 16px 0; }
         .data-table {
             width: 100%;
+            min-width: 520px;
             border-collapse: collapse;
-            margin: 16px 0;
             font-size: 0.92rem;
         }
         .data-table th,
         .data-table td {
-            border: 1px solid var(--line, #ddd8cc);
-            padding: 8px 10px;
+            border: 1px solid var(--line);
+            padding: 9px 11px;
             text-align: left;
             vertical-align: top;
         }
-        .data-table th { background: rgba(0, 0, 0, 0.04); font-weight: 600; }
-        @media (max-width: 560px) {
-            .data-table { font-size: 0.82rem; }
-            .data-table th, .data-table td { padding: 6px 7px; }
-        }
+        .data-table th { background: var(--line); font-weight: 700; }
 
-        :root {
-            --bg: #f4f1ea;
-            --ink: #1c1c1a;
-            --muted: #6b6b66;
-            --accent: #d6453d;
-            --card: #fffcf7;
-            --line: #e6e1d6;
+        /* ---------- Footer ---------- */
+        .footer {
+            background: var(--hero);
+            color: var(--hero-ink);
+            overflow: hidden;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
         }
-        * { box-sizing: border-box; }
-        body {
-            font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-            background: var(--bg);
-            color: var(--ink);
-            line-height: 1.65;
-            margin: 0;
-            padding: 48px 20px 64px;
-        }
-        .container { max-width: 680px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 36px; }
-        .wordmark {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin: 0 0 14px;
-        }
-        header h1 {
-            font-size: 2.1rem;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-            margin: 0 0 12px;
-        }
-        .cta { margin: 22px 0 0; }
-        .button {
-            display: inline-block;
-            background: var(--accent);
-            color: #fff;
-            padding: 12px 22px;
-            border-radius: 4px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 0.95rem;
-        }
-        .button:hover { text-decoration: none; opacity: 0.92; }
-        @media (max-width: 560px) {
-            header h1 { font-size: 1.65rem; }
-        }
-        .subtitle {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 1.05rem;
-            color: var(--muted);
-            margin: 0;
-        }
-        nav {
+        .footer-top {
             display: flex;
-            justify-content: center;
-            gap: 18px;
-            margin: 22px 0 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 0.9rem;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 18px 32px;
+            padding-block: 44px 28px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
         }
-        .card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            padding: 28px 26px;
-            margin-bottom: 20px;
+        .footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 26px; }
+        .footer a { color: var(--hero-ink); }
+        .footer small { font-size: 0.92rem; }
+        .giant {
+            font-family: "Fraunces", Georgia, serif;
+            font-style: italic;
+            font-weight: 900;
+            font-size: clamp(5.5rem, 25vw, 22rem);
+            line-height: 0.82;
+            letter-spacing: -0.04em;
+            color: var(--hero-accent);
+            padding-block: 28px 18px;
+            white-space: nowrap;
         }
-        h2 {
-            font-size: 1.25rem;
-            margin: 0 0 14px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--line);
-            letter-spacing: -0.02em;
-        }
-        h3 {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 0.95rem;
-            margin: 22px 0 8px;
-        }
-        p, li {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 0.95rem;
-        }
-        ul { padding-left: 1.2rem; margin: 8px 0; }
-        li { margin-bottom: 6px; }
-        a { color: var(--accent); text-decoration: none; font-weight: 600; }
-        a:hover { text-decoration: underline; }
-        .meta { color: var(--muted); font-size: 0.85rem; }
-        footer {
-            text-align: center;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin-top: 36px;
-        }
-        :target { scroll-margin-top: 24px; }
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
-        <p class="wordmark">Tarifly</p>
-        <h1>Save the recipes you love</h1>
-        <p class="subtitle">Recipe saver, meal planner and grocery list for iPhone. Save from TikTok links, screenshots, saved videos and text. No account. No ads. No tracking.</p>
 
+<header class="hero" id="top">
+    <nav class="nav wrap" aria-label="Main">
+        <a class="wordmark" href="#top">Tarifly</a>
+        <ul>
+            <li><a href="#product">Features</a></li>
+            <li><a href="#plus">Plus</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#support">Support</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#terms">Terms</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-body wrap">
+        <p class="label">Recipe saver for iPhone</p>
+        <h1 class="display">Save the recipes <em>you love</em></h1>
+        <p class="lede">Recipe saver, meal planner and grocery list for iPhone. Save from TikTok and Instagram links, screenshots, saved videos and text. <strong>No account. No ads. No tracking.</strong></p>
         <!-- App Store bağlantısı uygulama yayına girince doldurulacak (bekleyen iş).
              Submit anında henüz bir App Store URL'i yok; onaydan sonra eklenir. -->
-        <p class="cta"><a class="button" href="#product">See what Tarifly does</a></p>
+        <a class="btn btn-hero" href="#product">See what Tarifly does</a>
+    </div>
 
-        <nav>
-            <a href="#product">Features</a>
-            <a href="#support">Support</a>
-            <a href="#privacy">Privacy</a>
-            <a href="#terms">Terms</a>
-        </nav>
-    </header>
+    <svg class="foods" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+        <g fill="var(--ill-pepper)">
+            <circle cx="350" cy="120" r="9"/><circle cx="430" cy="48" r="6"/><circle cx="700" cy="96" r="7"/>
+            <circle cx="1010" cy="70" r="8"/><circle cx="1255" cy="118" r="6"/><circle cx="90" cy="70" r="7"/>
+        </g>
+        <g transform="translate(190 262) rotate(-12)">
+            <circle r="165" fill="var(--ill-lemon)"/>
+            <circle r="140" fill="var(--ill-lemon-in)"/>
+            <path d="M0 -132V132M-132 0H132M-93 -93L93 93M93 -93L-93 93" stroke="var(--ill-lemon)" stroke-width="9" stroke-linecap="round"/>
+            <circle r="18" fill="var(--ill-lemon)"/>
+        </g>
+        <g transform="translate(540 270) rotate(-28)">
+            <path d="M0 -190C120 -130 130 70 0 190C-130 70 -120 -130 0 -190Z" fill="var(--ill-leaf)"/>
+            <path d="M0 -168V210M0 -80L55 -122M0 -10L72 -58M0 62L66 20M0 -80L-55 -122M0 -10L-72 -58M0 62L-66 20" stroke="var(--ill-vein)" stroke-width="7" stroke-linecap="round" fill="none"/>
+        </g>
+        <g transform="translate(870 236) rotate(8)">
+            <path d="M-7 -146L0 -190L7 -146Z" fill="var(--ill-garlic)"/>
+            <path d="M0 -150C14 -118 34 -100 78 -70C150 -20 140 110 0 140C-140 110 -150 -20 -78 -70C-34 -100 -14 -118 0 -150Z" fill="var(--ill-garlic)"/>
+            <path d="M0 -120C-30 -40 -40 60 -20 135M0 -120C30 -40 40 60 20 135M-60 -60C-95 0 -95 80 -70 120M60 -60C95 0 95 80 70 120" stroke="var(--ill-garlic-line)" stroke-width="6" stroke-linecap="round" fill="none"/>
+        </g>
+        <g transform="translate(1135 250) rotate(-18)">
+            <path d="M-130 -70C-80 -90 -40 -40 0 -20C40 -40 80 -90 130 -70C150 -20 150 20 130 70C80 90 40 40 0 20C-40 40 -80 90 -130 70C-150 20 -150 -20 -130 -70Z" fill="var(--ill-pasta)"/>
+            <path d="M-116 -48C-127 -16 -127 16 -116 48M116 -48C127 -16 127 16 116 48" stroke="var(--ill-lemon)" stroke-width="6" stroke-linecap="round" fill="none"/>
+            <ellipse rx="17" ry="30" fill="var(--ill-lemon)"/>
+        </g>
+        <g transform="translate(1370 196) rotate(18)">
+            <ellipse rx="58" ry="74" fill="var(--ill-olive)"/>
+            <circle cx="4" cy="-36" r="19" fill="var(--ill-pimiento)"/>
+        </g>
+        <g transform="translate(1310 330) rotate(-14)">
+            <ellipse rx="58" ry="74" fill="var(--ill-olive)"/>
+            <circle cx="-2" cy="-38" r="19" fill="var(--ill-pimiento)"/>
+        </g>
+    </svg>
+</header>
 
-    <section class="card" id="product">
-        <h2>What Tarifly does</h2>
-        <p>You save food videos and never cook them, because the recipe is buried in a caption, spoken in a voice-over, or flashed on screen. Tarifly reads what you give it on your iPhone, lays out the ingredients and steps, and shows you everything before you save. When an amount isn't in the source, it says so instead of guessing. When a post has no recipe in it, Tarifly asks for a screenshot or the video &mdash; it never makes one up.</p>
-
-        <h3>Save the recipes you love</h3>
-        <ul>
-            <li><strong>TikTok links:</strong> share the post to Tarifly; it reads the caption and cover image.</li>
-            <li><strong>Screenshots:</strong> up to six at a time, read in the order you choose.</li>
-            <li><strong>Videos saved to Photos:</strong> speech and on-screen text are read on your iPhone. Tarifly doesn't download videos from links.</li>
-            <li><strong>Pasted text</strong>, or a recipe you write yourself.</li>
-            <li><strong>Instagram:</strong> take a screenshot of the recipe or paste the caption.</li>
-        </ul>
-
-        <h3>Your recipes, beautifully organized</h3>
-        <p>Clear ingredient lists and numbered steps, ingredient groups like &ldquo;For the sauce&rdquo; kept as the source wrote them, search and favorites, and nutrition estimates where the ingredients allow it. A recipe with missing steps or ingredients can be completed later from a screenshot, video or text.</p>
-
-        <h3>Cook with confidence</h3>
-        <p>Cook mode shows one large step at a time, offers timers when a step names a time (pause or add a minute), and keeps the screen on. The shopping list adds matching ingredients together and takes anything you add by hand. Cook mode and the shopping list are free for everyone.</p>
-
-        <h3>Tarifly Plus</h3>
-        <p>Unlimited supported recipe imports, a weekly meal plan for breakfast, lunch and dinner, serving scale up to 8&times; carried to your shopping list, and a shopping list grouped by aisle. Some import methods require a compatible Apple Intelligence device: recipes written as paragraphs are read with on-device Apple Intelligence. On other iPhones, recipes written as lists still import. Cloud processing is not currently available.</p>
-
-        <h3>No account. No ads. No tracking.</h3>
-        <p>There is no sign-up, no email, no advertising identifier, and no cross-app tracking. Your recipes are kept on your iPhone and are not sent to us &mdash; see the <a href="#privacy">privacy policy</a> for exactly what does and does not leave your device.</p>
-
-        <h3>What you get for free</h3>
-        <ul>
-            <li><strong>5 imports per week</strong> (a rolling 7-day window), counted when you save an imported recipe. Recipes you write yourself don't count.</li>
-            <li>Unlimited saved recipes, with a review screen before anything is saved.</li>
-            <li>Calorie and macro estimates.</li>
-            <li>Cook mode and the shopping list.</li>
-        </ul>
-        <p class="meta">Subscription terms are in <a href="#terms">the terms</a>. Localized prices are shown in the App Store before purchase.</p>
+<main>
+    <section class="section" id="product">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="label">What Tarifly does</p>
+                <h2 class="display">Save it <em>your way</em></h2>
+                <p>You save food videos and never cook them, because the recipe is buried in a caption, spoken in a voice-over, or flashed on screen. Share it to Tarifly from where you found it.</p>
+            </div>
+            <div class="sources-grid">
+                <article class="source">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>
+                    <h3>TikTok links</h3>
+                    <p>Share the post to Tarifly; it reads the caption and cover image.</p>
+                </article>
+                <article class="source">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3.2L8.8 6h6.4l1.6 2.5H20V19H4z"/><circle cx="12" cy="13.2" r="3.4"/></svg>
+                    <h3>Instagram links</h3>
+                    <p>Share the post to Tarifly; it reads the public post&rsquo;s caption and cover image. If Instagram doesn&rsquo;t show them, add a screenshot or paste the caption.</p>
+                </article>
+                <article class="source">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M9.5 7.5h5M9.5 11h5M9.5 14.5h3"/></svg>
+                    <h3>Screenshots</h3>
+                    <p>Up to six at a time, read in the order you choose.</p>
+                </article>
+                <article class="source">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M10.5 9.2v5.6L15 12z"/></svg>
+                    <h3>Videos saved to Photos</h3>
+                    <p>Speech and on-screen text are read on your iPhone. Tarifly doesn't download videos from links.</p>
+                </article>
+                <article class="source">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5h14M5 9.5h14M5 14h9M5 18.5h6"/></svg>
+                    <h3>Pasted text</h3>
+                    <p>Paste a recipe, or write one yourself.</p>
+                </article>
+            </div>
+        </div>
     </section>
 
-    <section class="card" id="support">
-        <h2>App Support &amp; Contact</h2>
+    <section class="section feature" id="review">
+        <div class="wrap">
+            <div class="copy">
+                <p class="label">Review</p>
+                <h2 class="display">Check it <em>before you save</em></h2>
+                <p>Tarifly reads what you give it on your iPhone, lays out the ingredients and steps, and shows you everything before you save. When an amount isn't in the source, it says so instead of guessing.</p>
+                <p class="aside">When a post has no recipe in it, Tarifly asks for a screenshot or the video &mdash; it never makes one up.</p>
+            </div>
+            <div class="stage">
+                <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M318 74C372 122 386 214 352 284C318 354 236 394 160 378C84 362 26 300 18 222C10 144 58 64 132 34C206 4 264 26 318 74Z"/><path class="s" d="M44 292C110 246 82 176 156 156C230 136 222 78 312 64" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
+                <div class="phone" role="img" aria-label="Tarifly's Confirm Recipe screen: Garlic Butter Shrimp with six ingredients, where Fresh parsley is marked “amount not specified”, four steps and a Save button.">
+                    <div class="screen" aria-hidden="true">
+                        <span class="time">9:41</span><span class="batt"></span>
+                        <div class="s-bar"><span class="pill">Close</span><span class="s-label s-muted">Confirm recipe</span><span class="pill red">Edit</span></div>
+                        <div class="banner">&#10003;&ensp;Recipe ready &mdash; check it before saving.</div>
+                        <div class="s-title">Garlic Butter Shrimp</div>
+                        <div class="s-label">Ingredients</div>
+                        <ul class="ing">
+                            <li>500 gram shrimp</li>
+                            <li>3 tablespoon butter</li>
+                            <li>4 cloves garlic</li>
+                            <li>1 lemon</li>
+                            <li>1 teaspoon paprika</li>
+                            <li>Fresh parsley <span class="s-muted">amount not specified</span></li>
+                        </ul>
+                        <div class="s-label">Steps</div>
+                        <ol class="steps">
+                            <li>Melt the butter in a pan over medium heat.</li>
+                            <li>Add the garlic and cook for 1 minute.</li>
+                            <li>Add the shrimp and paprika and cook for 3 minutes.</li>
+                        </ol>
+                        <div class="s-btn">Save</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section feature flip" id="library">
+        <div class="wrap">
+            <div class="copy">
+                <p class="label">Your cookbook</p>
+                <h2 class="display">Your recipes, <em>beautifully organized</em></h2>
+                <p>Clear ingredient lists and numbered steps, ingredient groups like &ldquo;For the sauce&rdquo; kept as the source wrote them, search and favorites, and nutrition estimates where the ingredients allow it.</p>
+                <p class="aside">A recipe with missing steps or ingredients can be completed later from a screenshot, video or text.</p>
+            </div>
+            <div class="stage olive">
+                <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M300 52C360 90 392 170 372 246C352 322 286 382 204 386C122 390 46 342 22 266C-2 190 30 104 96 60C162 16 240 14 300 52Z"/><path class="s" d="M60 110C120 140 100 210 170 230C240 250 250 320 340 330" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
+                <div class="phone" role="img" aria-label="Tarifly's Your Recipes screen: search, category filters, a Ready to cook card with a Start cooking button, and recipe cards including one titled Untitled Recipe with an Add a name prompt.">
+                    <div class="screen" aria-hidden="true">
+                        <span class="time">9:41</span><span class="batt"></span>
+                        <div class="s-title s-center">Your Recipes</div>
+                        <div class="search">Search recipes&hellip;</div>
+                        <div class="chips"><span class="chip on">ALL</span><span class="chip">MAIN DISH</span><span class="chip">SOUP</span><span class="chip">OTHER</span></div>
+                        <div class="card ready">
+                            <div class="shot" style="height:62px"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                            <div>
+                                <div class="s-label s-muted">Ready to cook</div>
+                                <div class="rec-t">Garlic Butter Shrimp</div>
+                                <span class="mini-btn">Start cooking</span>
+                            </div>
+                        </div>
+                        <div class="grid2">
+                            <div class="card">
+                                <div class="shot"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                <div class="rec-t">Garlic Butter Shrimp</div>
+                                <div class="rec-m"><span class="chip soft">OTHER</span>4 steps</div>
+                            </div>
+                            <div class="card">
+                                <div class="shot"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                <div class="rec-t s-muted">Untitled Recipe</div>
+                                <div class="addname">Add a name</div>
+                                <div class="rec-m"><span class="chip soft">MAIN DISH</span>3 steps</div>
+                            </div>
+                        </div>
+                        <div class="tabs">
+                            <span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3"/></svg>Recipes</span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Plan</span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg>Shopping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section feature" id="cook">
+        <div class="wrap">
+            <div class="copy">
+                <p class="label">Cook mode</p>
+                <h2 class="display">Cook with <em>confidence</em></h2>
+                <p>Cook mode shows one large step at a time, offers timers when a step names a time (pause or add a minute), and keeps the screen on.</p>
+            </div>
+            <div class="stage rose">
+                <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M326 96C378 150 380 240 336 304C292 368 204 400 130 372C56 344 8 262 20 184C32 106 98 40 176 30C254 20 274 42 326 96Z"/><path class="s" d="M70 70C130 110 90 170 160 190C230 210 200 290 320 320" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
+                <div class="phone" role="img" aria-label="Tarifly's cook mode: Garlic Butter Shrimp, step 1 of 4, “Melt the butter in a pan over medium heat.” in large type, with +1, +5 and +10 minute timer buttons and a Done button.">
+                    <div class="screen cook" aria-hidden="true">
+                        <span class="time">9:41</span><span class="batt"></span>
+                        <div class="cook-top">
+                            <span class="xbtn">&#10005;</span>
+                            <div><div class="rec-t">Garlic Butter Shrimp</div><div class="s-label s-muted" style="letter-spacing:0.02em;text-transform:none;font-size:11.5px">Step 1 of 4</div></div>
+                            <span class="pill">Ingredients</span>
+                        </div>
+                        <div class="bignum">1</div>
+                        <div class="bigstep">Melt the butter in a pan over medium heat.</div>
+                        <div class="timers"><span>+1 min</span><span>+5 min</span><span>+10 min</span></div>
+                        <div class="progress"><i></i></div>
+                        <div class="s-btn">&#10003;&ensp;Done</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section feature flip" id="shopping">
+        <div class="wrap">
+            <div class="copy">
+                <p class="label">Shopping list</p>
+                <h2 class="display">A shopping list <em>that adds up</em></h2>
+                <p>The shopping list adds matching ingredients together and takes anything you add by hand.</p>
+                <p class="aside">Cook mode and the shopping list are free for everyone.</p>
+            </div>
+            <div class="stage">
+                <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M318 74C372 122 386 214 352 284C318 354 236 394 160 378C84 362 26 300 18 222C10 144 58 64 132 34C206 4 264 26 318 74Z"/><path class="s" d="M330 300C270 260 300 190 230 170C160 150 170 90 80 70" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
+                <div class="phone" role="img" aria-label="Tarifly's Shopping List: garlic from two recipes combined into 7 cloves, butter, spaghetti, olive oil, a ticked-off lemon, and paper towels added by hand.">
+                    <div class="screen" aria-hidden="true">
+                        <span class="time">9:41</span><span class="batt"></span>
+                        <div class="s-title s-center">Shopping List</div>
+                        <div class="rows">
+                            <div class="row"><span class="box"></span><div><div class="nm">Garlic</div><div class="sub">7 cloves &middot; from 2 recipes</div></div></div>
+                            <div class="row"><span class="box"></span><div><div class="nm">Shrimp</div><div class="sub">500 gram</div></div></div>
+                            <div class="row"><span class="box"></span><div><div class="nm">Butter</div><div class="sub">3 tablespoon</div></div></div>
+                            <div class="row"><span class="box"></span><div><div class="nm">Spaghetti</div><div class="sub">200 g</div></div></div>
+                            <div class="row"><span class="box"></span><div><div class="nm">Olive oil</div><div class="sub">2 tbsp</div></div></div>
+                            <div class="row done"><span class="box"></span><div><div class="nm">Lemon</div><div class="sub">1</div></div></div>
+                            <div class="row"><span class="box"></span><div><div class="nm">Paper towels</div><div class="sub">added by you</div></div></div>
+                        </div>
+                        <div class="addrow">+&ensp;Add an item</div>
+                        <div class="tabs">
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19v-3"/></svg>Recipes</span>
+                            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Plan</span>
+                            <span class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.5l2.2 10.5h10.6L20.5 7H7"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg>Shopping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section plus feature" id="plus">
+        <div class="wrap">
+            <div class="copy">
+                <p class="label">Tarifly Plus</p>
+                <h2 class="display">Import more. <em>Plan your week.</em></h2>
+                <p>Unlimited supported recipe imports, a weekly meal plan for breakfast, lunch and dinner, serving scale up to 8&times; carried to your shopping list, and a shopping list grouped by aisle.</p>
+                <p>Some import methods require a compatible Apple Intelligence device: recipes written as paragraphs are read with on-device Apple Intelligence. On other iPhones, recipes written as lists still import. Cloud processing is not currently available.</p>
+            </div>
+            <div class="stage olive">
+                <div class="phone" role="img" aria-label="Tarifly's Weekly Plan for 2 to 8 November: Monday has breakfast, lunch and dinner planned, Tuesday has breakfast and lunch with dinner still open, and a button adds the week to the shopping list.">
+                    <div class="screen" aria-hidden="true">
+                        <span class="time">9:41</span><span class="batt"></span>
+                        <div class="s-title s-center">Weekly Plan</div>
+                        <div class="week"><span class="s-muted">&lsaquo;</span>2 Nov &ndash; 8 Nov<span class="s-muted">&rsaquo;</span></div>
+                        <div class="day">
+                            <div class="s-label">Monday 2 Nov</div>
+                            <div class="slot"><b>Breakfast</b>Menemen</div>
+                            <div class="slot"><b>Lunch</b>Mercimek Çorbası</div>
+                            <div class="slot"><b>Dinner</b>Garlic Butter Shrimp</div>
+                        </div>
+                        <div class="day">
+                            <div class="s-label">Tuesday 3 Nov</div>
+                            <div class="slot"><b>Breakfast</b>Menemen</div>
+                            <div class="slot"><b>Lunch</b>Garlic Chili Spaghetti</div>
+                            <div class="slot empty"><b>Dinner</b>+ Add recipe</div>
+                        </div>
+                        <div class="s-btn" style="font-size:11px">Add week to shopping (4 recipes, 5 meals)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="tiers">
+                <div class="tier">
+                    <h3>What you get for free</h3>
+                    <ul>
+                        <li><strong>5 imports per week</strong> (a rolling 7-day window), counted when you save an imported recipe. Recipes you write yourself don't count.</li>
+                        <li>Unlimited saved recipes, with a review screen before anything is saved.</li>
+                        <li>Calorie and macro estimates.</li>
+                        <li>Cook mode and the shopping list.</li>
+                    </ul>
+                </div>
+                <div class="tier">
+                    <h3>What Plus adds</h3>
+                    <ul>
+                        <li><strong>Unlimited supported recipe imports.</strong></li>
+                        <li>A weekly meal plan for breakfast, lunch and dinner.</li>
+                        <li>Serving scale up to 8&times;, carried to your shopping list.</li>
+                        <li>A shopping list grouped by aisle.</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="tier-note">Subscription terms are in <a href="#terms">the terms</a>. Localized prices are shown in the App Store before purchase.</p>
+        </div>
+    </section>
+
+    <section class="section promise">
+        <div class="wrap">
+            <p class="label">Privacy</p>
+            <h2 class="display" style="margin-top:18px">No account. <em>No ads.</em> No tracking.</h2>
+            <p class="promise-lede">There is no sign-up, no email, no advertising identifier, and no cross-app tracking. Your recipes are kept on your iPhone and are not sent to us &mdash; see the <a href="#privacy">privacy policy</a> for exactly what does and does not leave your device.</p>
+            <div class="facts">
+                <div class="fact">
+                    <p class="label">On your iPhone</p>
+                    <p>Your recipes, meal plan and shopping list are stored on your iPhone and are not sent to us or synced. If you back up your iPhone, the backup includes them.</p>
+                </div>
+                <div class="fact">
+                    <p class="label">No cloud processing</p>
+                    <p>In this version Tarifly does not send recipe content, captions, screenshots, video frames or transcripts to any server for processing.</p>
+                </div>
+                <div class="fact">
+                    <p class="label">No trackers</p>
+                    <p>No analytics SDK, no third-party tracker, no advertising identifier. Usage counters stay on your device.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="compare" style="padding-top:0">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="label">Compared</p>
+                <h2 class="display">How Tarifly <em>is different</em></h2>
+                <p>Every recipe app makes its own choices. These are Tarifly&rsquo;s.</p>
+            </div>
+            <table class="cmp">
+                <thead>
+                    <tr><th scope="col"><span class="visually-hidden">Topic</span></th><th scope="col" class="us">Tarifly</th><th scope="col">Other apps vary</th></tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">Getting started</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>No account required.</td><td class="them">Account requirements vary.</td></tr>
+                    <tr><th scope="row">Recipe storage</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>Your recipes stay in local app storage. Tarifly doesn&rsquo;t sync them to its servers.</td><td class="them">Storage and sync options vary.</td></tr>
+                    <tr><th scope="row">Ads</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>No ads.</td><td class="them">Some free apps include ads.</td></tr>
+                    <tr><th scope="row">Analytics &amp; advertising</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>No third-party analytics SDK or advertising ID.</td><td class="them">Data practices vary. Check each app&rsquo;s privacy details.</td></tr>
+                    <tr><th scope="row">Before saving</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>Review extracted ingredients and steps before saving.</td><td class="them">Import and review flows vary.</td></tr>
+                    <tr><th scope="row">Missing amounts</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>We don&rsquo;t guess missing quantities. We mark them as unspecified.</td><td class="them">Missing-data handling varies.</td></tr>
+                </tbody>
+            </table>
+
+            <h3 class="notyet-title">What Tarifly doesn&rsquo;t offer yet</h3>
+            <div class="notyet">
+                <div class="notyet-item">
+                    <p class="label">Cross-device sync</p>
+                    <p>Not available in this version. Tarifly doesn&rsquo;t sync your recipe library across devices.</p>
+                </div>
+                <div class="notyet-item">
+                    <p class="label">Platforms</p>
+                    <p>Tarifly is available for iPhone only in version 1.0. Android and web apps aren&rsquo;t available.</p>
+                </div>
+            </div>
+            <p class="cmp-note">This is a general comparison, not a statement about every recipe app. Features, data practices and import workflows vary by app and may change.</p>
+        </div>
+    </section>
+
+    <section class="section" id="faq" style="padding-top:0">
+        <div class="wrap">
+            <div class="section-head">
+                <p class="label">FAQ</p>
+                <h2 class="display">Good <em>to know</em></h2>
+            </div>
+            <div class="faq-list">
+                <details>
+                    <summary>Where can I save recipes from?</summary>
+                    <div class="answer">
+                        <p>TikTok and Instagram links (Tarifly reads the post&rsquo;s caption and cover image), screenshots &mdash; up to six at a time &mdash; videos saved to Photos, pasted text, or a recipe you write yourself. Tarifly doesn't download videos from links.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Does Tarifly read Instagram links?</summary>
+                    <div class="answer">
+                        <p>Yes. Tarifly opens the post&rsquo;s public page on your iPhone, without signing in, and reads its caption and cover image. Instagram sometimes doesn&rsquo;t show the caption, or limits access for a few minutes after frequent requests; then take a screenshot of the recipe or paste the caption.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>What if an amount or the whole recipe is missing?</summary>
+                    <div class="answer">
+                        <p>When an amount isn't in the source, Tarifly says so instead of guessing. When a post has no recipe in it, Tarifly asks for a screenshot or the video &mdash; it never makes one up. A recipe with missing steps or ingredients can be completed later from a screenshot, video or text.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Is Tarifly free?</summary>
+                    <div class="answer">
+                        <p>Yes. Tarifly Free includes up to 5 imports per rolling 7-day window (an import counts when you save it; failed or cancelled imports and recipes you write yourself don't count), unlimited saved recipes, calorie and macro estimates, cook mode, and a shopping list &mdash; at no cost, with no account.</p>
+                        <p>Tarifly Plus adds unlimited supported recipe imports, the weekly meal planner, serving scale and aisle-grouped shopping lists. Localized prices are shown in the App Store before purchase.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Do I need Apple Intelligence?</summary>
+                    <div class="answer">
+                        <p>Some import methods require a compatible Apple Intelligence device: recipes written as paragraphs are read with on-device Apple Intelligence. On other iPhones, recipes written as lists still import. Cloud processing is not currently available.</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Where are my recipes kept?</summary>
+                    <div class="answer">
+                        <p>On your iPhone. Your recipes, meal plan, shopping list and preferences are not sent to us or synced to any Tarifly server, and there is no account. If you back up your iPhone to iCloud or a computer, that backup includes them.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <div class="section docs" style="padding-top:0">
+        <div class="wrap docs">
+
+    <section class="doc support" id="support">
+        <h2 class="display">App Support &amp; Contact</h2>
         <p>Need help with Tarifly, found a bug, or have feedback? We’d love to hear from you.</p>
-        <p><strong>Support email:</strong> <a href="mailto:gufrangunes.dev@gmail.com">gufrangunes.dev@gmail.com</a></p>
+        <p><strong>Support email:</strong><br><a class="email" href="mailto:gufrangunes.dev@gmail.com">gufrangunes.dev@gmail.com</a></p>
         <p class="meta">We typically respond within 24–48 hours.</p>
     </section>
 
-    <section class="card" id="privacy">
-        <h2>Privacy Policy</h2>
+    <section class="doc" id="privacy">
+        <h2 class="display">Privacy Policy</h2>
         <p class="meta"><em>Last updated: October 29, 2026</em></p>
         <p>At Tarifly, your privacy is a product feature—not a marketing line. Your recipes belong to you.</p>
 
@@ -248,6 +1380,7 @@
             <li><strong>No account required.</strong> Tarifly does not ask you to create an account or provide a name, phone number, or social login to use the app.</li>
             <li><strong>On your iPhone.</strong> Recipes are read on your iPhone: on-device Apple Intelligence where available, and on-device text recognition for screenshots and video frames. Your recipes, meal plan, shopping list and preferences are stored on your iPhone (SwiftData) and are not sent to us or synced to any Tarifly server. If you back up your iPhone to iCloud or a computer, that backup includes them; backups are handled by Apple under your Apple Account.</li>
             <li><strong>TikTok links.</strong> When you share a TikTok link, Tarifly asks TikTok for that post&rsquo;s caption and cover image. As with any web request, TikTok receives the link and your network address. Nothing else about you is sent.</li>
+            <li><strong>Instagram links.</strong> When you share an Instagram link, Tarifly opens that post&rsquo;s public page on your iPhone &mdash; without signing in and without keeping cookies &mdash; to read its caption, author name and cover image. As with any web visit, Instagram receives the link and your network address. Nothing else about you is sent.</li>
             <li><strong>No cloud processing.</strong> In this version Tarifly does not send recipe content, captions, screenshots, video frames or transcripts to any server for processing. If that ever changes, this policy will be updated first and the app will say so before anything is sent.</li>
             <li><strong>No tracking.</strong> We do not track you across other companies&rsquo; apps or websites, and we do not sell your personal data.</li>
             <li><strong>Share Extension.</strong> When you share a link, screenshot or video into Tarifly, it is processed on your iPhone only to extract a recipe for you. Shared media is deleted once the import is saved or cancelled; a failed import keeps it so you can retry, until you discard it. A screenshot may be kept as the recipe&rsquo;s cover image.</li>
@@ -262,6 +1395,7 @@
         <p>We use no crash-reporting SDK. Aggregate crash and download statistics provided by Apple in App Store Connect are anonymised by Apple before we see them; we never receive per-user data.</p>
 
         <h3>4. What we collect &mdash; summary</h3>
+        <div class="table-wrap">
         <table class="data-table">
             <thead>
                 <tr><th>Category</th><th>Collected?</th><th>Linked to you?</th><th>Used for tracking?</th></tr>
@@ -270,10 +1404,11 @@
                 <tr><td>Contact info (name, email, phone)</td><td>No</td><td>&mdash;</td><td>No</td></tr>
                 <tr><td>Identifiers (account ID, device ID, advertising ID)</td><td>No</td><td>&mdash;</td><td>No</td></tr>
                 <tr><td>Usage data</td><td>Counted on device only; never transmitted</td><td>No</td><td>No</td></tr>
-                <tr><td>User content (shared video, recipes)</td><td>Processed and stored on your iPhone; not sent to us. A shared TikTok link is sent to TikTok to fetch its caption and cover image.</td><td>No</td><td>No</td></tr>
+                <tr><td>User content (shared video, recipes)</td><td>Processed and stored on your iPhone; not sent to us. A shared TikTok or Instagram link is sent to that platform to fetch the post&rsquo;s caption and cover image.</td><td>No</td><td>No</td></tr>
                 <tr><td>Purchases</td><td>Handled by Apple; we never see your card details</td><td>&mdash;</td><td>No</td></tr>
             </tbody>
         </table>
+        </div>
         <p><strong>Tarifly has no user accounts, so there is no account to delete.</strong> Deleting the app removes every recipe, shopping list, meal plan, and usage counter stored on your device. If you email us for support, we keep that email thread only as long as needed to answer you.</p>
 
         <h3>5. Children’s privacy</h3>
@@ -286,13 +1421,13 @@
         <p>Privacy questions: <a href="mailto:gufrangunes.dev@gmail.com">gufrangunes.dev@gmail.com</a></p>
     </section>
 
-    <section class="card" id="terms">
-        <h2>Terms of Use</h2>
+    <section class="doc" id="terms">
+        <h2 class="display">Terms of Use</h2>
         <p class="meta"><em>Last updated: October 29, 2026</em></p>
         <p>By downloading or using Tarifly you agree to these terms.</p>
 
         <h3>1. The service</h3>
-        <p>Tarifly helps you save recipes from supported sources &mdash; TikTok links, screenshots, video files you choose, and text &mdash; as structured recipes, with cook mode, a shopping list, and optional Plus features (unlimited supported recipe imports, weekly meal planning, serving scale, aisle grouping). Some import methods require a compatible Apple Intelligence device. Cloud processing is not currently available. Tarifly does not download videos from links, and Instagram links are not read automatically; use a screenshot or the caption text.</p>
+        <p>Tarifly helps you save recipes from supported sources &mdash; TikTok and Instagram links, screenshots, video files you choose, and text &mdash; as structured recipes, with cook mode, a shopping list, and optional Plus features (unlimited supported recipe imports, weekly meal planning, serving scale, aisle grouping). Some import methods require a compatible Apple Intelligence device. Cloud processing is not currently available. Tarifly does not download videos from links. Instagram links are read from the post&rsquo;s public page when Instagram shows the caption; if it doesn&rsquo;t, use a screenshot or the caption text.</p>
 
         <h3>2. License</h3>
         <p>We grant you a personal, non-exclusive, non-transferable license to use Tarifly on Apple devices you own or control, subject to the App Store Licensed Application End User License Agreement and these terms.</p>
@@ -319,9 +1454,26 @@
         <p><a href="mailto:gufrangunes.dev@gmail.com">gufrangunes.dev@gmail.com</a></p>
     </section>
 
-    <footer>
-        &copy; 2026 Gufran Güneş. Tarifly.
-    </footer>
-</div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="wrap">
+        <div class="footer-top">
+            <ul>
+                <li><a href="#product">Features</a></li>
+                <li><a href="#plus">Plus</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#support">Support</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="fonts/OFL.txt">Font licenses</a></li>
+            </ul>
+            <small>&copy; 2026 Gufran Güneş. Tarifly.</small>
+        </div>
+        <div class="giant" aria-hidden="true">Tarifly</div>
+    </div>
+</footer>
 </body>
 </html>
