@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Tarifly — Recipe Saver, Meal Planner &amp; Grocery List for iPhone</title>
+    <title>Laroa — Recipe Saver, Meal Planner &amp; Grocery List for iPhone</title>
     <meta name="description" content="Save the recipes you love from TikTok and Instagram links, screenshots, saved videos and text. Check every ingredient, then cook step by step. No account, no ads, no tracking.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='172 172 680 680'%3E%3Ccircle cx='512' cy='512' r='330' fill='%23E03E29'/%3E%3Ccircle cx='512' cy='512' r='292' fill='%23EC5A40'/%3E%3Cg fill='%23FBE1D2' transform='translate(512 512) scale(.93) translate(-512 -512)'%3E%3Cg transform='rotate(0 512 512)'%3E%3Cpath d='M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z'/%3E%3C/g%3E%3Cg transform='rotate(90 512 512)'%3E%3Cpath d='M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z'/%3E%3C/g%3E%3Cg transform='rotate(180 512 512)'%3E%3Cpath d='M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z'/%3E%3C/g%3E%3Cg transform='rotate(270 512 512)'%3E%3Cpath d='M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z'/%3E%3C/g%3E%3C/g%3E%3Ccircle cx='512' cy='512' r='27' fill='%23F7B9A2'/%3E%3C/svg%3E">
     <link rel="canonical" href="https://gufran123cj.github.io/tarifly-website/">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#d2361f" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#8e2414" media="(prefers-color-scheme: dark)">
-    <meta name="apple-mobile-web-app-title" content="Tarifly">
+    <meta name="apple-mobile-web-app-title" content="Laroa">
 
     <!-- hreflang: /tr/ sayfası henüz yok (bekleyen iş K5). Eklendiğinde
          aşağıdaki tr satırı ve /tr/ içindeki karşılığı birlikte açılmalı. -->
     <link rel="alternate" hreflang="en" href="https://gufran123cj.github.io/tarifly-website/">
     <link rel="alternate" hreflang="x-default" href="https://gufran123cj.github.io/tarifly-website/">
 
-    <meta property="og:site_name" content="Tarifly">
-    <meta property="og:title" content="Tarifly — Save the recipes you love">
+    <meta property="og:site_name" content="Laroa">
+    <meta property="og:title" content="Laroa — Save the recipes you love">
     <meta property="og:description" content="Recipe saver, meal planner and grocery list for iPhone. No account, no ads, no tracking.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gufran123cj.github.io/tarifly-website/">
@@ -25,13 +26,13 @@
     <!-- og:image bekleyen iş K9'a bağlı (1200×630 kart görseli henüz üretilmedi).
          Görselsiz paylaşımda kart çıplak görünüyor — GTM'in "share" ayağı bunu bekliyor. -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tarifly — Save the recipes you love">
+    <meta name="twitter:title" content="Laroa — Save the recipes you love">
     <meta name="twitter:description" content="Recipe saver, meal planner and grocery list for iPhone. No account, no ads, no tracking.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Tarifly",
+      "name": "Laroa",
       "operatingSystem": "iOS 26.0 or later",
       "applicationCategory": "FoodAndDrinkApplication",
       "description": "Save recipes from TikTok and Instagram links, screenshots, saved videos and text into an organized cookbook on your iPhone. Meal planner and grocery list. No account, no ads, no tracking.",
@@ -39,20 +40,20 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "Tarifly Free",
+          "name": "Laroa Free",
           "price": "0",
           "priceCurrency": "USD",
           "description": "Up to 5 imports per rolling 7-day window, unlimited saved recipes, a meal plan for the next 3 days, cook mode, grocery list and nutrition estimates."
         },
         {
           "@type": "Offer",
-          "name": "Tarifly Plus Monthly",
+          "name": "Laroa Plus Monthly",
           "price": "4.99",
           "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
-          "name": "Tarifly Plus Yearly",
+          "name": "Laroa Plus Yearly",
           "price": "29.99",
           "priceCurrency": "USD"
         }
@@ -338,6 +339,14 @@
             color: var(--hero-ink);
         }
         .wordmark:hover { text-decoration: none; }
+        /* Laroa yazı markası (SVG, fontsuz). Kırmızı zeminde dilim ters tonda:
+           krem kabuk, kırmızı odalar; domates kırmızısı zeminde kayboluyordu. */
+        .wm { display: block; height: 2.5rem; width: auto; overflow: visible; }
+        .wm .wm-skin { fill: var(--hero-ink); }
+        .wm .wm-flesh { fill: var(--tint); }
+        .wm .wm-ch { fill: var(--hero); }
+        .giant .wm { height: auto; width: min(100%, 64rem); }
+        .giant .wm .wm-skin { fill: currentColor; }
         .nav ul {
             list-style: none;
             margin: 0;
@@ -995,7 +1004,7 @@
 
 <header class="hero" id="top">
     <nav class="nav wrap" aria-label="Main">
-        <a class="wordmark" href="#top">Tarifly</a>
+        <a class="wordmark" href="#top"><svg class="wm" viewBox="-16 -186 566 202" role="img" aria-label="Laroa"><title>Laroa</title><g fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 -158 V-48 C12 -24 26 -12 48 -12"/><circle cx="130" cy="-56" r="44"/><path d="M174 -100 V-12"/><path d="M216 -100 V-12"/><path d="M216 -54 C216 -84 236 -100 264 -100"/><circle cx="478" cy="-56" r="44"/><path d="M522 -100 V-12"/></g><g transform="translate(346 -56) scale(0.16970) translate(-512 -512)"><circle class="wm-skin" cx="512" cy="512" r="330"/><circle class="wm-flesh" cx="512" cy="512" r="292"/><g class="wm-ch" transform="translate(512 512) scale(.93) translate(-512 -512)"><g transform="rotate(0 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g><g transform="rotate(90 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g><g transform="rotate(180 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g><g transform="rotate(270 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g></g></g></svg></a>
         <ul>
             <li><a href="#product">Features</a></li>
             <li><a href="#plus">Plus</a></li>
@@ -1016,7 +1025,7 @@
         <p class="lede">Recipe saver, meal planner and grocery list for iPhone. Save from TikTok and Instagram links, screenshots, saved videos and text. <strong>No account. No ads. No tracking.</strong></p>
         <!-- App Store bağlantısı uygulama yayına girince doldurulacak (bekleyen iş).
              Submit anında henüz bir App Store URL'i yok; onaydan sonra eklenir. -->
-        <a class="btn btn-hero" href="#product">See what Tarifly does</a>
+        <a class="btn btn-hero" href="#product">See what Laroa does</a>
     </div>
 
     <svg class="foods" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
@@ -1059,20 +1068,20 @@
     <section class="section" id="product">
         <div class="wrap">
             <div class="section-head">
-                <p class="label">What Tarifly does</p>
+                <p class="label">What Laroa does</p>
                 <h2 class="display">Save it <em>your way</em></h2>
-                <p>You save food videos and never cook them, because the recipe is buried in a caption, spoken in a voice-over, or flashed on screen. Share it to Tarifly from where you found it.</p>
+                <p>You save food videos and never cook them, because the recipe is buried in a caption, spoken in a voice-over, or flashed on screen. Share it to Laroa from where you found it.</p>
             </div>
             <div class="sources-grid">
                 <article class="source">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>
                     <h3>TikTok links</h3>
-                    <p>Share the post to Tarifly; it reads the caption and cover image.</p>
+                    <p>Share the post to Laroa; it reads the caption and cover image.</p>
                 </article>
                 <article class="source">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3.2L8.8 6h6.4l1.6 2.5H20V19H4z"/><circle cx="12" cy="13.2" r="3.4"/></svg>
                     <h3>Instagram links</h3>
-                    <p>Share the post to Tarifly; it reads the public post&rsquo;s caption and cover image. If Instagram doesn&rsquo;t show them, add a screenshot or paste the caption.</p>
+                    <p>Share the post to Laroa; it reads the public post&rsquo;s caption and cover image. If Instagram doesn&rsquo;t show them, add a screenshot or paste the caption.</p>
                 </article>
                 <article class="source">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M9.5 7.5h5M9.5 11h5M9.5 14.5h3"/></svg>
@@ -1082,7 +1091,7 @@
                 <article class="source">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M10.5 9.2v5.6L15 12z"/></svg>
                     <h3>Videos saved to Photos</h3>
-                    <p>Speech and on-screen text are read on your iPhone. Tarifly doesn't download videos from links.</p>
+                    <p>Speech and on-screen text are read on your iPhone. Laroa doesn't download videos from links.</p>
                 </article>
                 <article class="source">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5h14M5 9.5h14M5 14h9M5 18.5h6"/></svg>
@@ -1098,12 +1107,12 @@
             <div class="copy">
                 <p class="label">Review</p>
                 <h2 class="display">Check it <em>before you save</em></h2>
-                <p>Tarifly reads what you give it on your iPhone, lays out the ingredients and steps, and shows you everything before you save. When an amount isn't in the source, it says so instead of guessing.</p>
-                <p class="aside">When a post has no recipe in it, Tarifly asks for a screenshot or the video &mdash; it never makes one up.</p>
+                <p>Laroa reads what you give it on your iPhone, lays out the ingredients and steps, and shows you everything before you save. When an amount isn't in the source, it says so instead of guessing.</p>
+                <p class="aside">When a post has no recipe in it, Laroa asks for a screenshot or the video &mdash; it never makes one up.</p>
             </div>
             <div class="stage">
                 <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M318 74C372 122 386 214 352 284C318 354 236 394 160 378C84 362 26 300 18 222C10 144 58 64 132 34C206 4 264 26 318 74Z"/><path class="s" d="M44 292C110 246 82 176 156 156C230 136 222 78 312 64" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
-                <div class="phone" role="img" aria-label="Tarifly's Confirm Recipe screen: Garlic Butter Shrimp with six ingredients, where Fresh parsley is marked “amount not specified”, four steps and a Save button.">
+                <div class="phone" role="img" aria-label="Laroa's Confirm Recipe screen: Garlic Butter Shrimp with six ingredients, where Fresh parsley is marked “amount not specified”, four steps and a Save button.">
                     <div class="screen" aria-hidden="true">
                         <span class="time">9:41</span><span class="batt"></span>
                         <div class="s-bar"><span class="pill">Close</span><span class="s-label s-muted">Confirm recipe</span><span class="pill red">Edit</span></div>
@@ -1141,7 +1150,7 @@
             </div>
             <div class="stage olive">
                 <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M300 52C360 90 392 170 372 246C352 322 286 382 204 386C122 390 46 342 22 266C-2 190 30 104 96 60C162 16 240 14 300 52Z"/><path class="s" d="M60 110C120 140 100 210 170 230C240 250 250 320 340 330" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
-                <div class="phone" role="img" aria-label="Tarifly's Your Recipes screen: search, category filters, a Ready to cook card with a Start cooking button, and recipe cards including one titled Untitled Recipe with an Add a name prompt.">
+                <div class="phone" role="img" aria-label="Laroa's Your Recipes screen: search, category filters, a Ready to cook card with a Start cooking button, and recipe cards including one titled Untitled Recipe with an Add a name prompt.">
                     <div class="screen" aria-hidden="true">
                         <span class="time">9:41</span><span class="batt"></span>
                         <div class="s-title s-center">Your Recipes</div>
@@ -1188,7 +1197,7 @@
             </div>
             <div class="stage rose">
                 <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M326 96C378 150 380 240 336 304C292 368 204 400 130 372C56 344 8 262 20 184C32 106 98 40 176 30C254 20 274 42 326 96Z"/><path class="s" d="M70 70C130 110 90 170 160 190C230 210 200 290 320 320" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
-                <div class="phone" role="img" aria-label="Tarifly's cook mode: Garlic Butter Shrimp, step 1 of 4, “Melt the butter in a pan over medium heat.” in large type, with +1, +5 and +10 minute timer buttons and a Done button.">
+                <div class="phone" role="img" aria-label="Laroa's cook mode: Garlic Butter Shrimp, step 1 of 4, “Melt the butter in a pan over medium heat.” in large type, with +1, +5 and +10 minute timer buttons and a Done button.">
                     <div class="screen cook" aria-hidden="true">
                         <span class="time">9:41</span><span class="batt"></span>
                         <div class="cook-top">
@@ -1217,7 +1226,7 @@
             </div>
             <div class="stage">
                 <svg class="blob" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><path class="b" d="M318 74C372 122 386 214 352 284C318 354 236 394 160 378C84 362 26 300 18 222C10 144 58 64 132 34C206 4 264 26 318 74Z"/><path class="s" d="M330 300C270 260 300 190 230 170C160 150 170 90 80 70" stroke-width="16" fill="none" stroke-linecap="round"/></svg>
-                <div class="phone" role="img" aria-label="Tarifly's Shopping List: garlic from two recipes combined into 7 cloves, butter, spaghetti, olive oil, a ticked-off lemon, and paper towels added by hand.">
+                <div class="phone" role="img" aria-label="Laroa's Shopping List: garlic from two recipes combined into 7 cloves, butter, spaghetti, olive oil, a ticked-off lemon, and paper towels added by hand.">
                     <div class="screen" aria-hidden="true">
                         <span class="time">9:41</span><span class="batt"></span>
                         <div class="s-title s-center">Shopping List</div>
@@ -1245,13 +1254,13 @@
     <section class="section plus feature" id="plus">
         <div class="wrap">
             <div class="copy">
-                <p class="label">Tarifly Plus</p>
+                <p class="label">Laroa Plus</p>
                 <h2 class="display">Import more. <em>Plan your week.</em> Shop smarter.</h2>
                 <p>Unlimited supported recipe imports, the full 7-day meal plan for breakfast, lunch and dinner &mdash; filled automatically if you like, and added to your shopping list in one tap &mdash; serving scale up to 8&times; carried to your shopping list, and a shopping list grouped by aisle.</p>
                 <p>Some import methods require a compatible Apple Intelligence device: recipes written as paragraphs are read with on-device Apple Intelligence. On other iPhones, recipes written as lists still import. Cloud processing is not currently available.</p>
             </div>
             <div class="stage olive">
-                <div class="phone" role="img" aria-label="Tarifly's Weekly Plan for 2 to 8 November: Monday has breakfast, lunch and dinner planned, Tuesday has breakfast and lunch with dinner still open, and a button adds the week to the shopping list.">
+                <div class="phone" role="img" aria-label="Laroa's Weekly Plan for 2 to 8 November: Monday has breakfast, lunch and dinner planned, Tuesday has breakfast and lunch with dinner still open, and a button adds the week to the shopping list.">
                     <div class="screen" aria-hidden="true">
                         <span class="time">9:41</span><span class="batt"></span>
                         <div class="s-title s-center">Weekly Plan</div>
@@ -1311,7 +1320,7 @@
                 </div>
                 <div class="fact">
                     <p class="label">No cloud processing</p>
-                    <p>In this version Tarifly does not send recipe content, captions, screenshots, video frames or transcripts to any server for processing.</p>
+                    <p>In this version Laroa does not send recipe content, captions, screenshots, video frames or transcripts to any server for processing.</p>
                 </div>
                 <div class="fact">
                     <p class="label">No trackers</p>
@@ -1325,16 +1334,16 @@
         <div class="wrap">
             <div class="section-head">
                 <p class="label">Compared</p>
-                <h2 class="display">How Tarifly <em>is different</em></h2>
-                <p>Every recipe app makes its own choices. These are Tarifly&rsquo;s.</p>
+                <h2 class="display">How Laroa <em>is different</em></h2>
+                <p>Every recipe app makes its own choices. These are Laroa&rsquo;s.</p>
             </div>
             <table class="cmp">
                 <thead>
-                    <tr><th scope="col"><span class="visually-hidden">Topic</span></th><th scope="col" class="us">Tarifly</th><th scope="col">Other apps vary</th></tr>
+                    <tr><th scope="col"><span class="visually-hidden">Topic</span></th><th scope="col" class="us">Laroa</th><th scope="col">Other apps vary</th></tr>
                 </thead>
                 <tbody>
                     <tr><th scope="row">Getting started</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>No account required.</td><td class="them">Account requirements vary.</td></tr>
-                    <tr><th scope="row">Recipe storage</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>Your recipes stay in local app storage. Tarifly doesn&rsquo;t sync them to its servers.</td><td class="them">Storage and sync options vary.</td></tr>
+                    <tr><th scope="row">Recipe storage</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>Your recipes stay in local app storage. Laroa doesn&rsquo;t sync them to its servers.</td><td class="them">Storage and sync options vary.</td></tr>
                     <tr><th scope="row">Ads</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>No ads.</td><td class="them">Some free apps include ads.</td></tr>
                     <tr><th scope="row">Analytics &amp; advertising</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>No third-party analytics SDK or advertising ID.</td><td class="them">Data practices vary. Check each app&rsquo;s privacy details.</td></tr>
                     <tr><th scope="row">Before saving</th><td class="us"><span class="tick" aria-hidden="true">&#10003;</span>Review extracted ingredients and steps before saving.</td><td class="them">Import and review flows vary.</td></tr>
@@ -1342,15 +1351,15 @@
                 </tbody>
             </table>
 
-            <h3 class="notyet-title">What Tarifly doesn&rsquo;t offer yet</h3>
+            <h3 class="notyet-title">What Laroa doesn&rsquo;t offer yet</h3>
             <div class="notyet">
                 <div class="notyet-item">
                     <p class="label">Cross-device sync</p>
-                    <p>Not available in this version. Tarifly doesn&rsquo;t sync your recipe library across devices.</p>
+                    <p>Not available in this version. Laroa doesn&rsquo;t sync your recipe library across devices.</p>
                 </div>
                 <div class="notyet-item">
                     <p class="label">Platforms</p>
-                    <p>Tarifly is available for iPhone only in version 1.0. Android and web apps aren&rsquo;t available.</p>
+                    <p>Laroa is available for iPhone only in version 1.0. Android and web apps aren&rsquo;t available.</p>
                 </div>
             </div>
             <p class="cmp-note">This is a general comparison, not a statement about every recipe app. Features, data practices and import workflows vary by app and may change.</p>
@@ -1367,26 +1376,26 @@
                 <details>
                     <summary>Where can I save recipes from?</summary>
                     <div class="answer">
-                        <p>TikTok and Instagram links (Tarifly reads the post&rsquo;s caption and cover image), screenshots &mdash; up to six at a time &mdash; videos saved to Photos, pasted text, or a recipe you write yourself. Tarifly doesn't download videos from links.</p>
+                        <p>TikTok and Instagram links (Laroa reads the post&rsquo;s caption and cover image), screenshots &mdash; up to six at a time &mdash; videos saved to Photos, pasted text, or a recipe you write yourself. Laroa doesn't download videos from links.</p>
                     </div>
                 </details>
                 <details>
-                    <summary>Does Tarifly read Instagram links?</summary>
+                    <summary>Does Laroa read Instagram links?</summary>
                     <div class="answer">
-                        <p>Yes. Tarifly opens the post&rsquo;s public page on your iPhone, without signing in, and reads its caption and cover image. Instagram sometimes doesn&rsquo;t show the caption, or limits access for a few minutes after frequent requests; then take a screenshot of the recipe or paste the caption.</p>
+                        <p>Yes. Laroa opens the post&rsquo;s public page on your iPhone, without signing in, and reads its caption and cover image. Instagram sometimes doesn&rsquo;t show the caption, or limits access for a few minutes after frequent requests; then take a screenshot of the recipe or paste the caption.</p>
                     </div>
                 </details>
                 <details>
                     <summary>What if an amount or the whole recipe is missing?</summary>
                     <div class="answer">
-                        <p>When an amount isn't in the source, Tarifly says so instead of guessing. When a post has no recipe in it, Tarifly asks for a screenshot or the video &mdash; it never makes one up. A recipe with missing steps or ingredients can be completed later from a screenshot, video or text.</p>
+                        <p>When an amount isn't in the source, Laroa says so instead of guessing. When a post has no recipe in it, Laroa asks for a screenshot or the video &mdash; it never makes one up. A recipe with missing steps or ingredients can be completed later from a screenshot, video or text.</p>
                     </div>
                 </details>
                 <details>
-                    <summary>Is Tarifly free?</summary>
+                    <summary>Is Laroa free?</summary>
                     <div class="answer">
-                        <p>Yes. Tarifly Free includes up to 5 imports per rolling 7-day window (an import counts when you save it; failed or cancelled imports and recipes you write yourself don't count), unlimited saved recipes, a meal plan for the next 3 days, calorie and macro estimates, cook mode, and a shopping list &mdash; at no cost, with no account.</p>
-                        <p>Tarifly Plus adds unlimited supported recipe imports, the full 7-day meal plan with Fill week automatically and Add week to shopping, serving scale and aisle-grouped shopping lists. Localized prices are shown in the App Store before purchase.</p>
+                        <p>Yes. Laroa Free includes up to 5 imports per rolling 7-day window (an import counts when you save it; failed or cancelled imports and recipes you write yourself don't count), unlimited saved recipes, a meal plan for the next 3 days, calorie and macro estimates, cook mode, and a shopping list &mdash; at no cost, with no account.</p>
+                        <p>Laroa Plus adds unlimited supported recipe imports, the full 7-day meal plan with Fill week automatically and Add week to shopping, serving scale and aisle-grouped shopping lists. Localized prices are shown in the App Store before purchase.</p>
                     </div>
                 </details>
                 <details>
@@ -1398,7 +1407,7 @@
                 <details>
                     <summary>Where are my recipes kept?</summary>
                     <div class="answer">
-                        <p>On your iPhone. Your recipes, meal plan, shopping list and preferences are not sent to us or synced to any Tarifly server, and there is no account. If you back up your iPhone to iCloud or a computer, that backup includes them.</p>
+                        <p>On your iPhone. Your recipes, meal plan, shopping list and preferences are not sent to us or synced to any Laroa server, and there is no account. If you back up your iPhone to iCloud or a computer, that backup includes them.</p>
                     </div>
                 </details>
             </div>
@@ -1410,7 +1419,7 @@
 
     <section class="doc support" id="support">
         <h2 class="display">App Support &amp; Contact</h2>
-        <p>Need help with Tarifly, found a bug, or have feedback? We’d love to hear from you.</p>
+        <p>Need help with Laroa, found a bug, or have feedback? We’d love to hear from you.</p>
         <p><strong>Support email:</strong><br><a class="email" href="mailto:gufrangunes.dev@gmail.com">gufrangunes.dev@gmail.com</a></p>
         <p class="meta">We typically respond within 24–48 hours.</p>
     </section>
@@ -1418,26 +1427,26 @@
     <section class="doc" id="privacy">
         <h2 class="display">Privacy Policy</h2>
         <p class="meta"><em>Last updated: October 29, 2026</em></p>
-        <p>At Tarifly, your privacy is a product feature—not a marketing line. Your recipes belong to you.</p>
+        <p>At Laroa, your privacy is a product feature—not a marketing line. Your recipes belong to you.</p>
 
         <h3>1. Data collection &amp; processing</h3>
         <ul>
-            <li><strong>No account required.</strong> Tarifly does not ask you to create an account or provide a name, phone number, or social login to use the app.</li>
-            <li><strong>On your iPhone.</strong> Recipes are read on your iPhone: on-device Apple Intelligence where available, and on-device text recognition for screenshots and video frames. Your recipes, meal plan, shopping list and preferences are stored on your iPhone (SwiftData) and are not sent to us or synced to any Tarifly server. If you back up your iPhone to iCloud or a computer, that backup includes them; backups are handled by Apple under your Apple Account.</li>
-            <li><strong>TikTok links.</strong> When you share a TikTok link, Tarifly asks TikTok for that post&rsquo;s caption and cover image. As with any web request, TikTok receives the link and your network address. Nothing else about you is sent.</li>
-            <li><strong>Instagram links.</strong> When you share an Instagram link, Tarifly opens that post&rsquo;s public page on your iPhone &mdash; without signing in and without keeping cookies &mdash; to read its caption, author name and cover image. As with any web visit, Instagram receives the link and your network address. Nothing else about you is sent.</li>
-            <li><strong>No cloud processing.</strong> In this version Tarifly does not send recipe content, captions, screenshots, video frames or transcripts to any server for processing. If that ever changes, this policy will be updated first and the app will say so before anything is sent.</li>
+            <li><strong>No account required.</strong> Laroa does not ask you to create an account or provide a name, phone number, or social login to use the app.</li>
+            <li><strong>On your iPhone.</strong> Recipes are read on your iPhone: on-device Apple Intelligence where available, and on-device text recognition for screenshots and video frames. Your recipes, meal plan, shopping list and preferences are stored on your iPhone (SwiftData) and are not sent to us or synced to any Laroa server. If you back up your iPhone to iCloud or a computer, that backup includes them; backups are handled by Apple under your Apple Account.</li>
+            <li><strong>TikTok links.</strong> When you share a TikTok link, Laroa asks TikTok for that post&rsquo;s caption and cover image. As with any web request, TikTok receives the link and your network address. Nothing else about you is sent.</li>
+            <li><strong>Instagram links.</strong> When you share an Instagram link, Laroa opens that post&rsquo;s public page on your iPhone &mdash; without signing in and without keeping cookies &mdash; to read its caption, author name and cover image. As with any web visit, Instagram receives the link and your network address. Nothing else about you is sent.</li>
+            <li><strong>No cloud processing.</strong> In this version Laroa does not send recipe content, captions, screenshots, video frames or transcripts to any server for processing. If that ever changes, this policy will be updated first and the app will say so before anything is sent.</li>
             <li><strong>No tracking.</strong> We do not track you across other companies&rsquo; apps or websites, and we do not sell your personal data.</li>
-            <li><strong>Share Extension.</strong> When you share a link, screenshot or video into Tarifly, it is processed on your iPhone only to extract a recipe for you. Shared media is deleted once the import is saved or cancelled; a failed import keeps it so you can retry, until you discard it. One image may be kept on your iPhone as the recipe&rsquo;s cover: the photo part of a screenshot, one still frame from a video, or the post&rsquo;s cover image for a link.</li>
+            <li><strong>Share Extension.</strong> When you share a link, screenshot or video into Laroa, it is processed on your iPhone only to extract a recipe for you. Shared media is deleted once the import is saved or cancelled; a failed import keeps it so you can retry, until you discard it. One image may be kept on your iPhone as the recipe&rsquo;s cover: the photo part of a screenshot, one still frame from a video, or the post&rsquo;s cover image for a link.</li>
             <li><strong>Translation.</strong> If you choose to show a recipe in the app&rsquo;s language, it is translated on your iPhone with Apple&rsquo;s Translation. The first time, iOS may download that language from Apple. Your recipe is not sent to us. Amounts and units are not translated, and the original text is kept.</li>
         </ul>
 
         <h3>2. Subscriptions &amp; payments</h3>
-        <p>Tarifly Plus subscriptions are purchased and managed through Apple’s App Store (StoreKit). Apple processes payment. We do not receive or store your full card number.</p>
+        <p>Laroa Plus subscriptions are purchased and managed through Apple’s App Store (StoreKit). Apple processes payment. We do not receive or store your full card number.</p>
 
         <h3>3. Analytics</h3>
-        <p>Tarifly keeps a small set of <strong>counters on your device</strong> so we can tell whether the app is actually useful &mdash; for example how many recipes were imported, whether a cook session was finished, and whether a shopping list was ticked off. These counters are stored in a separate on-device database, are kept at day-level resolution, and are deleted after 90 days.</p>
-        <p><strong>They never leave your iPhone.</strong> There is no analytics SDK, no third-party tracker, and no upload: Tarifly has no server that receives them and no account to attach them to. No advertising identifier, device identifier, or user identifier is generated or stored, and no recipe title, link, creator name, or caption is ever recorded &mdash; only fixed event labels. Deleting the app deletes them.</p>
+        <p>Laroa keeps a small set of <strong>counters on your device</strong> so we can tell whether the app is actually useful &mdash; for example how many recipes were imported, whether a cook session was finished, and whether a shopping list was ticked off. These counters are stored in a separate on-device database, are kept at day-level resolution, and are deleted after 90 days.</p>
+        <p><strong>They never leave your iPhone.</strong> There is no analytics SDK, no third-party tracker, and no upload: Laroa has no server that receives them and no account to attach them to. No advertising identifier, device identifier, or user identifier is generated or stored, and no recipe title, link, creator name, or caption is ever recorded &mdash; only fixed event labels. Deleting the app deletes them.</p>
         <p>We use no crash-reporting SDK. Aggregate crash and download statistics provided by Apple in App Store Connect are anonymised by Apple before we see them; we never receive per-user data.</p>
 
         <h3>4. What we collect &mdash; summary</h3>
@@ -1455,10 +1464,10 @@
             </tbody>
         </table>
         </div>
-        <p><strong>Tarifly has no user accounts, so there is no account to delete.</strong> Deleting the app removes every recipe, shopping list, meal plan, and usage counter stored on your device. If you email us for support, we keep that email thread only as long as needed to answer you.</p>
+        <p><strong>Laroa has no user accounts, so there is no account to delete.</strong> Deleting the app removes every recipe, shopping list, meal plan, and usage counter stored on your device. If you email us for support, we keep that email thread only as long as needed to answer you.</p>
 
         <h3>5. Children’s privacy</h3>
-        <p>Tarifly is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+        <p>Laroa is not directed at children under 13. We do not knowingly collect personal information from children.</p>
 
         <h3>6. Changes</h3>
         <p>We may update this policy. The “Last updated” date above will change when we do. Material changes will be reflected in the App Store listing where required.</p>
@@ -1470,31 +1479,31 @@
     <section class="doc" id="terms">
         <h2 class="display">Terms of Use</h2>
         <p class="meta"><em>Last updated: October 29, 2026</em></p>
-        <p>By downloading or using Tarifly you agree to these terms.</p>
+        <p>By downloading or using Laroa you agree to these terms.</p>
 
         <h3>1. The service</h3>
-        <p>Tarifly helps you save recipes from supported sources &mdash; TikTok and Instagram links, screenshots, video files you choose, and text &mdash; as structured recipes, with cook mode, a shopping list, a meal plan for the next 3 days, and optional Plus features (unlimited supported recipe imports, the full 7-day meal plan with automatic fill and adding the week to the shopping list, serving scale, aisle grouping). Some import methods require a compatible Apple Intelligence device. Cloud processing is not currently available. Tarifly does not download videos from links. Instagram links are read from the post&rsquo;s public page when Instagram shows the caption; if it doesn&rsquo;t, use a screenshot or the caption text.</p>
+        <p>Laroa helps you save recipes from supported sources &mdash; TikTok and Instagram links, screenshots, video files you choose, and text &mdash; as structured recipes, with cook mode, a shopping list, a meal plan for the next 3 days, and optional Plus features (unlimited supported recipe imports, the full 7-day meal plan with automatic fill and adding the week to the shopping list, serving scale, aisle grouping). Some import methods require a compatible Apple Intelligence device. Cloud processing is not currently available. Laroa does not download videos from links. Instagram links are read from the post&rsquo;s public page when Instagram shows the caption; if it doesn&rsquo;t, use a screenshot or the caption text.</p>
 
         <h3>2. License</h3>
-        <p>We grant you a personal, non-exclusive, non-transferable license to use Tarifly on Apple devices you own or control, subject to the App Store Licensed Application End User License Agreement and these terms.</p>
+        <p>We grant you a personal, non-exclusive, non-transferable license to use Laroa on Apple devices you own or control, subject to the App Store Licensed Application End User License Agreement and these terms.</p>
 
         <h3>3. Your content</h3>
-        <p>You are responsible for links and media you import. You must have the right to use that content for personal cooking reference. Tarifly does not claim ownership of your saved recipes.</p>
+        <p>You are responsible for links and media you import. You must have the right to use that content for personal cooking reference. Laroa does not claim ownership of your saved recipes.</p>
 
         <h3>4. Subscriptions</h3>
-        <p><strong>Tarifly Free</strong> includes up to 5 imports per rolling 7-day window (an import counts when you save it; failed or cancelled imports and recipes you write yourself don't count), unlimited saved recipes, a meal plan for the next 3 days (today and the two days after), calorie and macro estimates, cook mode, and a shopping list &mdash; at no cost, with no account.</p>
-        <p><strong>Tarifly Plus</strong> is an auto-renewing subscription that unlocks unlimited supported recipe imports, the full 7-day meal planner with Fill week automatically and Add week to shopping, serving scale, and aisle-grouped shopping lists.</p>
+        <p><strong>Laroa Free</strong> includes up to 5 imports per rolling 7-day window (an import counts when you save it; failed or cancelled imports and recipes you write yourself don't count), unlimited saved recipes, a meal plan for the next 3 days (today and the two days after), calorie and macro estimates, cook mode, and a shopping list &mdash; at no cost, with no account.</p>
+        <p><strong>Laroa Plus</strong> is an auto-renewing subscription that unlocks unlimited supported recipe imports, the full 7-day meal planner with Fill week automatically and Add week to shopping, serving scale, and aisle-grouped shopping lists.</p>
         <ul>
-            <li><strong>Tarifly Plus Monthly</strong> &mdash; US$4.99 per month, with no free trial.</li>
-            <li><strong>Tarifly Plus Yearly</strong> &mdash; US$29.99 per year (about US$2.50 per month), with a <strong>7-day free trial</strong> for eligible new subscribers. The free trial is offered on the yearly plan only.</li>
+            <li><strong>Laroa Plus Monthly</strong> &mdash; US$4.99 per month, with no free trial.</li>
+            <li><strong>Laroa Plus Yearly</strong> &mdash; US$29.99 per year (about US$2.50 per month), with a <strong>7-day free trial</strong> for eligible new subscribers. The free trial is offered on the yearly plan only.</li>
         </ul>
-        <p>Payment is charged to your Apple Account at confirmation of purchase. The subscription renews automatically unless auto-renew is turned off at least 24 hours before the end of the current period. Your Apple Account is charged for renewal within 24 hours prior to the end of the current period, at the price listed above. <strong>If you start a free trial, it converts into a paid yearly subscription automatically unless you cancel at least 24 hours before the trial ends.</strong> Any unused portion of a free trial is forfeited when you purchase a subscription. Manage or cancel at any time in iOS Settings &rarr; your name &rarr; Subscriptions. Prices above are the US reference; your local price is shown in the App Store before purchase and local taxes may apply. Use of Tarifly is also governed by the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard End User License Agreement</a>.</p>
+        <p>Payment is charged to your Apple Account at confirmation of purchase. The subscription renews automatically unless auto-renew is turned off at least 24 hours before the end of the current period. Your Apple Account is charged for renewal within 24 hours prior to the end of the current period, at the price listed above. <strong>If you start a free trial, it converts into a paid yearly subscription automatically unless you cancel at least 24 hours before the trial ends.</strong> Any unused portion of a free trial is forfeited when you purchase a subscription. Manage or cancel at any time in iOS Settings &rarr; your name &rarr; Subscriptions. Prices above are the US reference; your local price is shown in the App Store before purchase and local taxes may apply. Use of Laroa is also governed by the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard End User License Agreement</a>.</p>
 
         <h3>5. Disclaimer</h3>
-        <p>Recipes and nutrition estimates are for informational purposes only&mdash;not medical or dietary advice. Extraction quality depends on source captions, audio, and on-screen text; Tarifly marks missing amounts instead of guessing them, but always review a recipe before cooking.</p>
+        <p>Recipes and nutrition estimates are for informational purposes only&mdash;not medical or dietary advice. Extraction quality depends on source captions, audio, and on-screen text; Laroa marks missing amounts instead of guessing them, but always review a recipe before cooking.</p>
 
         <h3>6. Limitation of liability</h3>
-        <p>To the maximum extent permitted by law, Tarifly and its developer are not liable for indirect, incidental, or consequential damages arising from use of the app.</p>
+        <p>To the maximum extent permitted by law, Laroa and its developer are not liable for indirect, incidental, or consequential damages arising from use of the app.</p>
 
         <h3>7. Contact</h3>
         <p><a href="mailto:gufrangunes.dev@gmail.com">gufrangunes.dev@gmail.com</a></p>
@@ -1516,9 +1525,9 @@
                 <li><a href="#terms">Terms</a></li>
                 <li><a href="fonts/OFL.txt">Font licenses</a></li>
             </ul>
-            <small>&copy; 2026 Gufran Güneş. Tarifly.</small>
+            <small>&copy; 2026 Gufran Güneş. Laroa.</small>
         </div>
-        <div class="giant" aria-hidden="true">Tarifly</div>
+        <div class="giant" aria-hidden="true"><svg class="wm" viewBox="-16 -186 566 202" focusable="false"><g fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 -158 V-48 C12 -24 26 -12 48 -12"/><circle cx="130" cy="-56" r="44"/><path d="M174 -100 V-12"/><path d="M216 -100 V-12"/><path d="M216 -54 C216 -84 236 -100 264 -100"/><circle cx="478" cy="-56" r="44"/><path d="M522 -100 V-12"/></g><g transform="translate(346 -56) scale(0.16970) translate(-512 -512)"><circle class="wm-skin" cx="512" cy="512" r="330"/><circle class="wm-flesh" cx="512" cy="512" r="292"/><g class="wm-ch" transform="translate(512 512) scale(.93) translate(-512 -512)"><g transform="rotate(0 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g><g transform="rotate(90 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g><g transform="rotate(180 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g><g transform="rotate(270 512 512)"><path d="M512 470 C452 452 408 372 432 302 C452 246 572 246 592 302 C616 372 572 452 512 470 Z"/></g></g></g></svg></div>
     </div>
 </footer>
 <script>
