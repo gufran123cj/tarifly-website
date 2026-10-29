@@ -3,26 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarifly — Support &amp; Privacy</title>
-    <meta name="description" content="Turn Instagram Reels &amp; TikTok food videos into clean, cookable recipes. No account. No ads. On-device AI.">
-    <meta property="og:title" content="Tarifly — Social Recipes to Clean Text">
-    <meta property="og:description" content="Extract recipes from social videos in seconds with on-device AI.">
+    <title>Tarifly — Recipe Saver, Meal Planner &amp; Grocery List for iPhone</title>
+    <meta name="description" content="Save the recipes you love from TikTok links, screenshots, saved videos and text. Check every ingredient, then cook step by step. No account, no ads, no tracking.">
+    <link rel="canonical" href="https://gufran123cj.github.io/tarifly-website/">
+    <meta name="theme-color" content="#d6453d">
+    <meta name="apple-mobile-web-app-title" content="Tarifly">
+
+    <!-- hreflang: /tr/ sayfası henüz yok (bekleyen iş K5). Eklendiğinde
+         aşağıdaki tr satırı ve /tr/ içindeki karşılığı birlikte açılmalı. -->
+    <link rel="alternate" hreflang="en" href="https://gufran123cj.github.io/tarifly-website/">
+    <link rel="alternate" hreflang="x-default" href="https://gufran123cj.github.io/tarifly-website/">
+
+    <meta property="og:site_name" content="Tarifly">
+    <meta property="og:title" content="Tarifly — Save the recipes you love">
+    <meta property="og:description" content="Recipe saver, meal planner and grocery list for iPhone. No account, no ads, no tracking.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gufran123cj.github.io/tarifly-website/">
+    <meta property="og:locale" content="en_US">
+    <!-- og:image bekleyen iş K9'a bağlı (1200×630 kart görseli henüz üretilmedi).
+         Görselsiz paylaşımda kart çıplak görünüyor — GTM'in "share" ayağı bunu bekliyor. -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tarifly — Save the recipes you love">
+    <meta name="twitter:description" content="Recipe saver, meal planner and grocery list for iPhone. No account, no ads, no tracking.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Tarifly",
-      "operatingSystem": "iOS",
+      "operatingSystem": "iOS 26.0 or later",
       "applicationCategory": "FoodAndDrinkApplication",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
+      "description": "Save recipes from TikTok links, screenshots, saved videos and text into an organized cookbook on your iPhone. Meal planner and grocery list. No account, no ads, no tracking.",
+      "inLanguage": ["en", "tr"],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Tarifly Free",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Up to 5 imports per rolling 7-day window, unlimited saved recipes, cook mode, grocery list and nutrition estimates."
+        },
+        {
+          "@type": "Offer",
+          "name": "Tarifly Plus Monthly",
+          "price": "7.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Tarifly Plus Yearly",
+          "price": "39.99",
+          "priceCurrency": "USD"
+        }
+      ]
     }
     </script>
     <style>
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+        .data-table th,
+        .data-table td {
+            border: 1px solid var(--line, #ddd8cc);
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .data-table th { background: rgba(0, 0, 0, 0.04); font-weight: 600; }
+        @media (max-width: 560px) {
+            .data-table { font-size: 0.82rem; }
+            .data-table th, .data-table td { padding: 6px 7px; }
+        }
+
         :root {
             --bg: #f4f1ea;
             --ink: #1c1c1a;
@@ -42,11 +96,34 @@
         }
         .container { max-width: 680px; margin: 0 auto; }
         header { text-align: center; margin-bottom: 36px; }
-        .brand {
-            font-size: 2.4rem;
+        .wordmark {
+            font-size: 1.1rem;
             font-weight: 700;
-            letter-spacing: -0.04em;
-            margin: 0 0 8px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 14px;
+        }
+        header h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin: 0 0 12px;
+        }
+        .cta { margin: 22px 0 0; }
+        .button {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.95rem;
+        }
+        .button:hover { text-decoration: none; opacity: 0.92; }
+        @media (max-width: 560px) {
+            header h1 { font-size: 1.65rem; }
         }
         .subtitle {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -103,14 +180,56 @@
 <body>
 <div class="container">
     <header>
-        <h1 class="brand">Tarifly</h1>
-        <p class="subtitle">Turn Reels &amp; TikTok into cookable recipes</p>
+        <p class="wordmark">Tarifly</p>
+        <h1>Save the recipes you love</h1>
+        <p class="subtitle">Recipe saver, meal planner and grocery list for iPhone. Save from TikTok links, screenshots, saved videos and text. No account. No ads. No tracking.</p>
+
+        <!-- App Store bağlantısı uygulama yayına girince doldurulacak (bekleyen iş).
+             Submit anında henüz bir App Store URL'i yok; onaydan sonra eklenir. -->
+        <p class="cta"><a class="button" href="#product">See what Tarifly does</a></p>
+
         <nav>
+            <a href="#product">Features</a>
             <a href="#support">Support</a>
             <a href="#privacy">Privacy</a>
             <a href="#terms">Terms</a>
         </nav>
     </header>
+
+    <section class="card" id="product">
+        <h2>What Tarifly does</h2>
+        <p>You save food videos and never cook them, because the recipe is buried in a caption, spoken in a voice-over, or flashed on screen. Tarifly reads what you give it on your iPhone, lays out the ingredients and steps, and shows you everything before you save. When an amount isn't in the source, it says so instead of guessing. When a post has no recipe in it, Tarifly asks for a screenshot or the video &mdash; it never makes one up.</p>
+
+        <h3>Save the recipes you love</h3>
+        <ul>
+            <li><strong>TikTok links:</strong> share the post to Tarifly; it reads the caption and cover image.</li>
+            <li><strong>Screenshots:</strong> up to six at a time, read in the order you choose.</li>
+            <li><strong>Videos saved to Photos:</strong> speech and on-screen text are read on your iPhone. Tarifly doesn't download videos from links.</li>
+            <li><strong>Pasted text</strong>, or a recipe you write yourself.</li>
+            <li><strong>Instagram:</strong> take a screenshot of the recipe or paste the caption.</li>
+        </ul>
+
+        <h3>Your recipes, beautifully organized</h3>
+        <p>Clear ingredient lists and numbered steps, ingredient groups like &ldquo;For the sauce&rdquo; kept as the source wrote them, search and favorites, and nutrition estimates where the ingredients allow it. A recipe with missing steps or ingredients can be completed later from a screenshot, video or text.</p>
+
+        <h3>Cook with confidence</h3>
+        <p>Cook mode shows one large step at a time, offers timers when a step names a time (pause or add a minute), and keeps the screen on. The shopping list adds matching ingredients together and takes anything you add by hand. Cook mode and the shopping list are free for everyone.</p>
+
+        <h3>Tarifly Plus</h3>
+        <p>Unlimited supported recipe imports, a weekly meal plan for breakfast, lunch and dinner, serving scale up to 8&times; carried to your shopping list, and a shopping list grouped by aisle. Some import methods require a compatible Apple Intelligence device: recipes written as paragraphs are read with on-device Apple Intelligence. On other iPhones, recipes written as lists still import. Cloud processing is not currently available.</p>
+
+        <h3>No account. No ads. No tracking.</h3>
+        <p>There is no sign-up, no email, no advertising identifier, and no cross-app tracking. Your recipes are kept on your iPhone and are not sent to us &mdash; see the <a href="#privacy">privacy policy</a> for exactly what does and does not leave your device.</p>
+
+        <h3>What you get for free</h3>
+        <ul>
+            <li><strong>5 imports per week</strong> (a rolling 7-day window), counted when you save an imported recipe. Recipes you write yourself don't count.</li>
+            <li>Unlimited saved recipes, with a review screen before anything is saved.</li>
+            <li>Calorie and macro estimates.</li>
+            <li>Cook mode and the shopping list.</li>
+        </ul>
+        <p class="meta">Subscription terms are in <a href="#terms">the terms</a>. Localized prices are shown in the App Store before purchase.</p>
+    </section>
 
     <section class="card" id="support">
         <h2>App Support &amp; Contact</h2>
@@ -121,41 +240,59 @@
 
     <section class="card" id="privacy">
         <h2>Privacy Policy</h2>
-        <p class="meta"><em>Last updated: July 23, 2026</em></p>
+        <p class="meta"><em>Last updated: October 29, 2026</em></p>
         <p>At Tarifly, your privacy is a product feature—not a marketing line. Your recipes belong to you.</p>
 
         <h3>1. Data collection &amp; processing</h3>
         <ul>
             <li><strong>No account required.</strong> Tarifly does not ask you to create an account or provide a name, phone number, or social login to use the app.</li>
-            <li><strong>On-device by default.</strong> Recipe extraction uses Apple Intelligence on your iPhone when available. Saved recipes live in on-device storage (SwiftData)—not in a Tarifly user cloud account.</li>
-            <li><strong>Optional cloud fallback (Plus only).</strong> On devices without Apple Intelligence, Tarifly Plus may send extraction requests through a secure proxy so the feature still works. Free-tier users without on-device AI are not silently billed; Plus is required for that path. We do not use that pipeline to sell ads or build advertising profiles.</li>
-            <li><strong>No tracking for ads.</strong> We do not track you across other companies’ apps or websites for advertising, and we do not sell your personal data.</li>
-            <li><strong>Share Extension.</strong> When you share a link or video into Tarifly, that content is processed only to extract a recipe for you.</li>
+            <li><strong>On your iPhone.</strong> Recipes are read on your iPhone: on-device Apple Intelligence where available, and on-device text recognition for screenshots and video frames. Your recipes, meal plan, shopping list and preferences are stored on your iPhone (SwiftData) and are not sent to us or synced to any Tarifly server. If you back up your iPhone to iCloud or a computer, that backup includes them; backups are handled by Apple under your Apple Account.</li>
+            <li><strong>TikTok links.</strong> When you share a TikTok link, Tarifly asks TikTok for that post&rsquo;s caption and cover image. As with any web request, TikTok receives the link and your network address. Nothing else about you is sent.</li>
+            <li><strong>No cloud processing.</strong> In this version Tarifly does not send recipe content, captions, screenshots, video frames or transcripts to any server for processing. If that ever changes, this policy will be updated first and the app will say so before anything is sent.</li>
+            <li><strong>No tracking.</strong> We do not track you across other companies&rsquo; apps or websites, and we do not sell your personal data.</li>
+            <li><strong>Share Extension.</strong> When you share a link, screenshot or video into Tarifly, it is processed on your iPhone only to extract a recipe for you. Shared media is deleted once the import is saved or cancelled; a failed import keeps it so you can retry, until you discard it. A screenshot may be kept as the recipe&rsquo;s cover image.</li>
         </ul>
 
         <h3>2. Subscriptions &amp; payments</h3>
         <p>Tarifly Plus subscriptions are purchased and managed through Apple’s App Store (StoreKit). Apple processes payment. We do not receive or store your full card number.</p>
 
-        <h3>3. Analytics &amp; crash data</h3>
-        <p>If we enable diagnostic tooling in the future, it will be disclosed here and in App Store privacy labels. Prefer on-device diagnostics over third-party trackers.</p>
+        <h3>3. Analytics</h3>
+        <p>Tarifly keeps a small set of <strong>counters on your device</strong> so we can tell whether the app is actually useful &mdash; for example how many recipes were imported, whether a cook session was finished, and whether a shopping list was ticked off. These counters are stored in a separate on-device database, are kept at day-level resolution, and are deleted after 90 days.</p>
+        <p><strong>They never leave your iPhone.</strong> There is no analytics SDK, no third-party tracker, and no upload: Tarifly has no server that receives them and no account to attach them to. No advertising identifier, device identifier, or user identifier is generated or stored, and no recipe title, link, creator name, or caption is ever recorded &mdash; only fixed event labels. Deleting the app deletes them.</p>
+        <p>We use no crash-reporting SDK. Aggregate crash and download statistics provided by Apple in App Store Connect are anonymised by Apple before we see them; we never receive per-user data.</p>
 
-        <h3>4. Children’s privacy</h3>
+        <h3>4. What we collect &mdash; summary</h3>
+        <table class="data-table">
+            <thead>
+                <tr><th>Category</th><th>Collected?</th><th>Linked to you?</th><th>Used for tracking?</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Contact info (name, email, phone)</td><td>No</td><td>&mdash;</td><td>No</td></tr>
+                <tr><td>Identifiers (account ID, device ID, advertising ID)</td><td>No</td><td>&mdash;</td><td>No</td></tr>
+                <tr><td>Usage data</td><td>Counted on device only; never transmitted</td><td>No</td><td>No</td></tr>
+                <tr><td>User content (shared video, recipes)</td><td>Processed and stored on your iPhone; not sent to us. A shared TikTok link is sent to TikTok to fetch its caption and cover image.</td><td>No</td><td>No</td></tr>
+                <tr><td>Purchases</td><td>Handled by Apple; we never see your card details</td><td>&mdash;</td><td>No</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Tarifly has no user accounts, so there is no account to delete.</strong> Deleting the app removes every recipe, shopping list, meal plan, and usage counter stored on your device. If you email us for support, we keep that email thread only as long as needed to answer you.</p>
+
+        <h3>5. Children’s privacy</h3>
         <p>Tarifly is not directed at children under 13. We do not knowingly collect personal information from children.</p>
 
-        <h3>5. Changes</h3>
+        <h3>6. Changes</h3>
         <p>We may update this policy. The “Last updated” date above will change when we do. Material changes will be reflected in the App Store listing where required.</p>
 
-        <h3>6. Contact</h3>
+        <h3>7. Contact</h3>
         <p>Privacy questions: <a href="mailto:gufrangunes.dev@gmail.com">gufrangunes.dev@gmail.com</a></p>
     </section>
 
     <section class="card" id="terms">
         <h2>Terms of Use</h2>
-        <p class="meta"><em>Last updated: July 23, 2026</em></p>
+        <p class="meta"><em>Last updated: October 29, 2026</em></p>
         <p>By downloading or using Tarifly you agree to these terms.</p>
 
         <h3>1. The service</h3>
-        <p>Tarifly helps you turn social food videos (for example Instagram Reels and TikTok) into structured recipes, with cook mode, shopping list, and optional Plus features (unlimited imports, meal planning, aisle grouping, portion scaling, cloud extraction fallback).</p>
+        <p>Tarifly helps you save recipes from supported sources &mdash; TikTok links, screenshots, video files you choose, and text &mdash; as structured recipes, with cook mode, a shopping list, and optional Plus features (unlimited supported recipe imports, weekly meal planning, serving scale, aisle grouping). Some import methods require a compatible Apple Intelligence device. Cloud processing is not currently available. Tarifly does not download videos from links, and Instagram links are not read automatically; use a screenshot or the caption text.</p>
 
         <h3>2. License</h3>
         <p>We grant you a personal, non-exclusive, non-transferable license to use Tarifly on Apple devices you own or control, subject to the App Store Licensed Application End User License Agreement and these terms.</p>
@@ -164,10 +301,16 @@
         <p>You are responsible for links and media you import. You must have the right to use that content for personal cooking reference. Tarifly does not claim ownership of your saved recipes.</p>
 
         <h3>4. Subscriptions</h3>
-        <p>Free includes limited weekly imports and core cook/shopping features as described in the App Store listing. Plus is an auto-renewing subscription billed by Apple. Manage or cancel in iOS Settings → Apple ID → Subscriptions. Unused free-trial time is forfeited when you purchase where applicable.</p>
+        <p><strong>Tarifly Free</strong> includes up to 5 imports per rolling 7-day window (an import counts when you save it; failed or cancelled imports and recipes you write yourself don't count), unlimited saved recipes, calorie and macro estimates, cook mode, and a shopping list &mdash; at no cost, with no account.</p>
+        <p><strong>Tarifly Plus</strong> is an auto-renewing subscription that unlocks unlimited supported recipe imports, the weekly meal planner, serving scale, and aisle-grouped shopping lists.</p>
+        <ul>
+            <li><strong>Tarifly Plus Monthly</strong> &mdash; US$7.99 per month.</li>
+            <li><strong>Tarifly Plus Yearly</strong> &mdash; US$39.99 per year (about US$3.33 per month), with a <strong>7-day free trial</strong> for eligible new subscribers. The free trial is offered on the yearly plan only.</li>
+        </ul>
+        <p>Payment is charged to your Apple Account at confirmation of purchase. The subscription renews automatically unless auto-renew is turned off at least 24 hours before the end of the current period. Your Apple Account is charged for renewal within 24 hours prior to the end of the current period, at the price listed above. <strong>If you start a free trial, it converts into a paid yearly subscription automatically unless you cancel at least 24 hours before the trial ends.</strong> Any unused portion of a free trial is forfeited when you purchase a subscription. Manage or cancel at any time in iOS Settings &rarr; your name &rarr; Subscriptions. Prices above are the US reference; your local price is shown in the App Store before purchase and local taxes may apply. Use of Tarifly is also governed by the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard End User License Agreement</a>.</p>
 
         <h3>5. Disclaimer</h3>
-        <p>Recipes and nutrition estimates are for informational purposes only—not medical or dietary advice. Extraction quality depends on source captions, audio, and on-screen text; always review before cooking.</p>
+        <p>Recipes and nutrition estimates are for informational purposes only&mdash;not medical or dietary advice. Extraction quality depends on source captions, audio, and on-screen text; Tarifly marks missing amounts instead of guessing them, but always review a recipe before cooking.</p>
 
         <h3>6. Limitation of liability</h3>
         <p>To the maximum extent permitted by law, Tarifly and its developer are not liable for indirect, incidental, or consequential damages arising from use of the app.</p>
